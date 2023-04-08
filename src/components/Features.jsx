@@ -9,9 +9,11 @@ function Features() {
       <div className="flex max-w-screen-xl mx-auto items-center justify-center gap-x-40 py-20">
         {/* Left */}
         <div>
-          <button className="border px-4 rounded-2xl text-[#269140] bg-[#E9FBEF] font-inter font-bold">
-            Features
-          </button>
+          <div className="mb-12">
+            <button className="border px-4 rounded-2xl text-[#269140] bg-[#E9FBEF] font-inter font-bold">
+              Features
+            </button>
+          </div>
           <div className="mt-6 space-y-4 mb-12 flex flex-col">
             <h1 className="font-semibold text-3xl text-gray-900 font-poppins max-w-3xl">
               If you’re serious about growth, you need more than “thought
