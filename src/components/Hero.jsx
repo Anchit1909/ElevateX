@@ -3,19 +3,32 @@ import React from "react";
 function Hero() {
   return (
     <section>
-      <div className="flex bg-gradient-to-br from-violet-400 to-white">
-      <div className="my-36 ml-32 w-3/6">
-        <h1 className="font-bold text-7xl text-gray-900">Post Your Digital Product and Get Discovered</h1>
-        <p className="text-gray-600 mt-4 text-lg w-6/12">Get the kind of personalized advice you’d never find reading blog posts or weatching courses.</p>
-        <div className="mt-4 space-x-2">
-          <button className="my-auto bg-violet-500 text-white font-bold text-lg py-1 px-4 rounded-3xl"><p className="login">Get Started</p></button>
-          <button className="text-violet-700 border rounded-3xl py-1 px-4 font-bold border-violet-700 hover:underline">View Demo Video</button>
+      <div className="flex max-w-screen-xl items-center justify-center mx-auto gap-x-24">
+        <div className="my-36 flex flex-col">
+          <h1 className="font-semibold text-6xl text-gray-900 font-poppins max-w-lg relative">
+            Post Your Digital Product and Get Discovered
+          </h1>
+          <div className="absolute -left-40 top-1 w-96 h-96 bg-[#B3AAFC]/40 rounded-full blur-3xl -z-10" />
+          <div className="absolute -left-20 -top-28 w-96 h-96 bg-[#E841E1]/40 rounded-full blur-3xl -z-10" />
+          <div className="absolute left-28 -top-28 w-96 h-96 bg-[#F1BB31]/40 rounded-full blur-3xl -z-10" />
+          <div className="absolute left-52 -top-28 w-96 h-96 bg-[#DFF363]/40 rounded-full blur-3xl -z-10" />
+          <p className="text-gray-600 mt-4 text-lg max-w-md font-inter">
+            Get the kind of personalized advice you’d never find reading blog
+            posts or weatching courses.
+          </p>
+          <div className="mt-4 space-x-2 font-inter flex flex-row items-center">
+            <button className="my-auto bg-[#7A5AF8] text-white font-bold text-lg py-1 px-4 rounded-3xl">
+              <p className="login">Get Started</p>
+            </button>
+            <button className="text-[#6938EF] border rounded-3xl py-1 px-4 font-bold border-[#6938EF] hover:underline">
+              View Demo Video
+            </button>
+          </div>
+        </div>
+        <div className="w-1/2">
+          <img src="/hero_image.png" alt="" />
         </div>
       </div>
-      <div className="h-6/12 w-6/12">
-        <img src="/image.jpg" alt="" />
-      </div>
-    </div>
     </section>
   );
 }
