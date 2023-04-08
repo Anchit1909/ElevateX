@@ -4,7 +4,7 @@ function HowItWorks() {
   return (
     <section>
       <div className="mx-28">
-        <p className="my-5 border w-28 px-2 rounded-lg bg-emerald-50">
+        <p className="my-5 border w-28 px-2 rounded-xl bg-emerald-50 text-green-600">
           How it works
         </p>
         <div className="box1 my-4 flex space-x-12">
