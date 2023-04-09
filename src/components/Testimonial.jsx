@@ -54,7 +54,7 @@ function Testimonial() {
         </div>
         <div className="flex my-12 mx-24 space-x-14 border rounded-xl bg-white">
           <img
-            className="h-96 w-80 rounded-tl-xl rounded-bl-xl"
+            className="h-96 w-72 rounded-tl-xl rounded-bl-xl"
             src="/startup.jpg"
             alt=""
           />
