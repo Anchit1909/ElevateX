@@ -2,16 +2,22 @@ import React from "react";
 
 function SmallTestimonial() {
   return (
-    <section>
-      <div className="text-center">
-      <div>
-        <h1 className="mx-44 text-4xl pt-12">“I get to talk 1-on-1 to pretty much celebrities in my industry. I feel really privileged to just be in touch  with some of these people, not to mention to get business advice from them."</h1>
+    <section className="bg-[#FAFBFD] mt-12 py-20">
+      <div className="text-center font-poppins max-w-screen-xl mx-auto flex flex-col items-center justify-center">
+        <div>
+          <h1 className="text-3xl leading-10 tracking-tight max-w-6xl">
+            “I get to talk 1-on-1 to pretty much celebrities in my industry. I
+            feel really privileged to just be in touch with some of these
+            people, not to mention to get business advice from them."
+          </h1>
+        </div>
+        <div className="flex mt-6 justify-center items-center space-x-6">
+          <h2 className="font-semibold">Ena Mandic</h2>
+          <h2 className="text-[#98A2B2]">
+            Head of Customer Success at Lemlist.com
+          </h2>
+        </div>
       </div>
-      <div className="flex mt-8 justify-center space-x-6 text-lg pb-12">
-        <h1 className="font-bold">Ena Mandic</h1>
-        <h1 className="text-gray-400">Head of Customer Success at Lemlist.com</h1>
-      </div>
-    </div>
     </section>
   );
 }
