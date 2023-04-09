@@ -19,7 +19,7 @@ const inter = Inter({
 export default function App({ Component, pageProps }) {
   return (
     <main className={cx(poppins.variable, inter.variable)}>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </main>
   );
 }

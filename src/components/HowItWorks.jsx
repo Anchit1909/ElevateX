@@ -2,7 +2,7 @@ import React from "react";
 
 function HowItWorks() {
   return (
-    <section className="py-28">
+    <section className="py-28 bg-white">
       <div className="max-w-screen-xl mx-auto">
         <div className="mb-12">
           <button className="border px-4 rounded-2xl text-[#269140] bg-[#E9FBEF] font-inter font-bold">
