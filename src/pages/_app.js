@@ -24,7 +24,7 @@ export default function App({
   return (
     <SessionProvider session={session}>
       <main className={cx(poppins.variable, inter.variable)}>
-        <Component {...pageProps} />4
+        <Component {...pageProps} />
       </main>
     </SessionProvider>
   );
