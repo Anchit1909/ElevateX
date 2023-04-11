@@ -4,7 +4,6 @@ import Image from "next/image";
 
 function Header() {
   const { data: session } = useSession();
-  console.log(session);
   return (
     <section>
       <div className="flex space-x-80 h-16 bg-white">
