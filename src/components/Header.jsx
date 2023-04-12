@@ -1,6 +1,7 @@
 import React from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
+import Link from "next/link";
 
 function Header() {
   const { data: session } = useSession();
@@ -8,10 +9,12 @@ function Header() {
     <section>
       <div className="flex space-x-80 bg-white py-3">
         <div className="text-3xl ml-16 my-auto">
-          Product<span className="font-bold">Hunt</span>
+          <Link href="/">
+            Product<span className="font-bold">Hunt</span>
+          </Link>
         </div>
         <div className="flex space-x-8 my-auto text-lg">
-          <div>Explore Products</div>
+          <Link href="/products">Explore Products</Link>
           <div>Top investors</div>
           <div>Startup stories</div>
         </div>
