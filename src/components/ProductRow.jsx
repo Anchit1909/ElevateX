@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { AiFillLike } from "react-icons/ai";
 
@@ -6,9 +7,11 @@ function ProductRow({ id, data }) {
     <div className="mt-4 flex flex-row items-center justify-center">
       <img src={data.image} alt="" className="w-20 h-20" />
       <div className="mt-8 ml-4 ">
-        <p className=" not-italic font-medium text-xl leading-3">
-          {data.heading}
-        </p>
+        <Link href="/startup">
+          <p className=" not-italic font-medium text-xl leading-3">
+            {data.heading}
+          </p>
+        </Link>
         <br />
         <p className="not-italic font-medium text-base leading-3 text-gray-700">
           {data.tagline}
