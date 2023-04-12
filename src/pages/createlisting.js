@@ -34,7 +34,7 @@ function createlisting() {
         userEmail: session.user.email,
       }
     );
-    router.push(`/product/${doc.id}`);
+    router.push(`/startup/${doc.id}`);
   };
 
   // const [users] = useCollection(session && collection(db, "startups"));

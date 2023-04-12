@@ -7,6 +7,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { useSession } from "next-auth/react";
+import ProductRow from "./ProductRow";
 function Product() {
   const { data: session } = useSession();
   // const [StartupList, setStartupList] = useState([]);
@@ -93,6 +94,11 @@ function Product() {
           <hr className="mt-4 ml-40  mr-[200px]"></hr>
           <div className="mt-4 ml-40  mr-[200px] not-italic font-semibold text-3xl">
             The Next Big Thing
+          </div>
+          <div>
+            {startups.docs.map((doc) => (
+              <ProductRow key={doc.id} id={doc.id} />
+            ))}
           </div>
           <div className="mt-4 ml-40  mr-[200px] flex">
             <img src="/box1.jpg" alt="" className="w-40 h-40" />
