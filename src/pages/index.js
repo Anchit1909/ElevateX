@@ -28,7 +28,7 @@ export default function Home() {
         <Features />
         <Companies />
         <HowItWorks />
-        <Startups />
+        {/* <Startups /> */}
         <Testimonial />
         <Footer />
       </main>

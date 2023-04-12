@@ -6,7 +6,7 @@ function Header() {
   const { data: session } = useSession();
   return (
     <section>
-      <div className="flex space-x-80 h-16 bg-white">
+      <div className="flex space-x-80 bg-white py-3">
         <div className="text-3xl ml-16 my-auto">
           Product<span className="font-bold">Hunt</span>
         </div>
@@ -16,7 +16,7 @@ function Header() {
           <div>Startup stories</div>
         </div>
         {session ? (
-          <Image
+          <img
             src={
               // session.user?.image ||
               session.user?.image ||
@@ -26,7 +26,6 @@ function Header() {
             className="cursor-pointer rounded-full"
             width={34}
             height={34}
-            style={{ objectFit: "cover" }}
             onClick={() => signOut()}
           />
         ) : (
