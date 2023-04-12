@@ -13,50 +13,56 @@ function HowItWorks() {
           <div className="flex flex-col lg:flex-row items-center justify-center">
             <div className="lg:w-1/2 flex flex-col">
               <p className="text-[#6938EF] font-poppins font-medium mb-2">
-              Log in and enjoy the ElatedX{"-->"}{" "}
+                Log in and enjoy the ElevateX{"-->"}{" "}
               </p>
               <h1 className="font-semibold font-poppins text-3xl mb-5 text-gray-900 max-w-xl">
-              Interact with ElatedX and easily access the way to look at the tech startups.
+                Interact with ElatedX and easily access the way to look at the
+                tech startups.
               </h1>
               <p className="text-lg text-[#425466] font-inter max-w-xl">
-              Your like and your dislike matters in the startup of everyone so give it to the most deserving one
+                Your like and your dislike matters in the startup of everyone so
+                give it to the most deserving one
               </p>
             </div>
             <div className="w-1/2 flex items-center justify-center">
-              <img src="/box1.jpg" alt="" width="420px" />
+              <img src="/hiwform.png" alt="" width="420px" />
             </div>
           </div>
           <div className="flex flex-col lg:flex-row items-center justify-center">
             <div className="lg:w-1/2 flex flex-col">
               <p className="text-[#6938EF] font-poppins font-medium mb-2">
-              On the way to invest{"-->"}{" "}
+                On the way to invest{"-->"}{" "}
               </p>
               <h1 className="font-semibold font-poppins text-3xl mb-5 text-gray-900 max-w-xl">
-              The most impactful part of someone's career is "Think Twice, give rise"
+                The most impactful part of someone's career is "Think Twice,
+                give rise"
               </h1>
               <p className="text-lg text-[#425466] font-inter max-w-xl">
-              It is the brain of our website as this controls the process that regulates our theme and the user has to choose the best out of the list
-
+                It is the brain of our website as this controls the process that
+                regulates our theme and the user has to choose the best out of
+                the list
               </p>
             </div>
             <div className="w-1/2 flex items-center justify-center">
-              <img src="/box1.jpg" alt="" width="420px" />
+              <img src="/hiw2.png" alt="" width="420px" />
             </div>
           </div>
           <div className="flex flex-col lg:flex-row items-center justify-center">
             <div className="lg:w-1/2 flex flex-col">
               <p className="text-[#6938EF] font-poppins font-medium mb-2">
-              Take a look at the product{"-->"}{" "}
+                Take a look at the product{"-->"}{" "}
               </p>
               <h1 className="font-semibold font-poppins text-3xl mb-5 text-gray-900 max-w-xl">
-              Most Anxious time for the product and the invester to have a contract in future.
+                Most Anxious time for the product and the invester to have a
+                contract in future.
               </h1>
               <p className="text-lg text-[#425466] font-inter max-w-xl">
-              Get to know more about the product that you have selected and understand the work flow of that organization.
+                Get to know more about the product that you have selected and
+                understand the work flow of that organization.
               </p>
             </div>
             <div className="w-1/2 flex items-center justify-center">
-              <img src="/box1.jpg" alt="" width="420px" />
+              <img src="/hiw3.png" alt="" width="420px" />
             </div>
           </div>
         </div>
