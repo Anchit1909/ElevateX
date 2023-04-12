@@ -6,16 +6,16 @@ function Startup() {
   return (
     <div>
       <Header />
-      <div className="flex">
-        <div className="w-8/12  ml-40 border-r-2 pr-12 border-gray-900 mt-24">
+      <div className="flex flex-col lg:flex-row max-w-screen-xl mx-auto">
+        <div className="px-4 xl:px-4 lg:border-r-2 pr-3 border-gray-200 mt-24">
           <div className="flex">
-            <div className="w-6/12">
-              <img className="w-40" src="com_logo.jpg" alt="" />
-              <h1 className="text-gray-600 text-2xl">
+            <div className="md:w-6/12">
+              <img className="w-40" src="/com_logo.jpg" alt="" />
+              <h1 className="text-gray-600 text-2xl max-w-md">
                 Scheduled payment reminders for Venmo and Cash App
               </h1>
             </div>
-            <div className="ml-72 mt-10">
+            <div className="md:ml-72 mt-10  space-x-2 flex flex-col md:flex-row items-center justify-start">
               <button className="my-auto text-violet-700 border text-lg rounded-md py-1 px-4 font-bold border-violet-700">
                 Visit
               </button>
@@ -37,8 +37,8 @@ function Startup() {
               AI "Biz-in-a-Box"
             </h1>
           </div>
-          <hr className="w-11/12 my-10 bg-gray-700" />
-          <div className="flex space-x-10 mt-20">
+          <hr className="w-11/12 my-10 bg-gray-200" />
+          <div className="flex space-x-2 md:space-x-10 mt-20">
             <img className="w-6/12 h-64" src="dp7.jpg" alt="" />
             <img className="w-6/12 h-64" src="dp7.jpg" alt="" />
           </div>
@@ -73,7 +73,7 @@ function Startup() {
             </h1>
           </div>
         </div>
-        <div className="mt-32 w-3/12">
+        <div className="my-16 md:my-32 md:w-3/12 mx-auto">
           <div className="pl-7 w-72">
             <div className="text-gray-700">TRENDING LAUNCHES --&gt;</div>
             <div className="flex my-4 space-x-2">
