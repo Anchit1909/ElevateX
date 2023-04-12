@@ -1,7 +1,39 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Rightbar from "@/components/Rightbar";
 import { AiFillLike } from "react-icons/ai";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebase";
+import { useCollection } from "react-firebase-hooks/firestore";
+import { useSession } from "next-auth/react";
 function Product() {
+  const { data: session } = useSession();
+  // const [StartupList, setStartupList] = useState([]);
+  // const startupCollection = collection(db, "startups");
+
+  const [startups, loading] = useCollection(
+    session && collection(db, "user", session.user.email, "startups")
+  );
+
+  console.log(startups);
+
+  // const getstartupList = async () => {
+  //   try {
+  //     const data = await getDocs(startupCollection);
+  //     const filteredData = data.docs.map((doc, id) => ({
+  //       ...doc.data(),
+  //       // id: doc.id,
+  //     }));
+  //     setStartupList(filteredData);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+  // useEffect(() => {
+  //   getstartupList();
+  // }, []);
+
   return (
     <div>
       <div className="flex">
@@ -65,9 +97,7 @@ function Product() {
           <div className="mt-4 ml-40  mr-[200px] flex">
             <img src="/box1.jpg" alt="" className="w-40 h-40" />
             <div className="mt-8 ml-4 ">
-              <p className=" not-italic font-medium text-xl leading-3">
-                Monday.com for Productivity
-              </p>
+              <p className=" not-italic font-medium text-xl leading-3">ddd</p>
               <br />
               <p className="not-italic font-medium text-base leading-3 text-gray-700">
                 Turn your team into a productivity powerhouse

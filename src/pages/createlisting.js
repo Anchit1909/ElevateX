@@ -1,12 +1,17 @@
+"use client";
+
 import React, { useState } from "react";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useSession } from "next-auth/react";
 import { db } from "../../firebase";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { useCollection } from "react-firebase-hooks/firestore";
+import { useRouter } from "next/navigation";
 
 function createlisting() {
+  const router = useRouter();
   const { data: session } = useSession();
   const [name, setName] = useState("");
   const [tagline, setTagline] = useState("");
@@ -15,21 +20,26 @@ function createlisting() {
   const [imageurl, setImageurl] = useState("");
   const [description, setDescription] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await addDoc(
-      collection(db, "startups", {
-        name,
-        tagline,
+  const CreateAccount = async () => {
+    const doc = await addDoc(
+      collection(db, "user", session.user.email, "startups"),
+      {
+        name: name,
+        tagline: tagline,
         productLink: link,
-        category,
+        category: category,
         imageLink: imageurl,
-        description,
+        description: description,
         createdAt: serverTimestamp(),
         userEmail: session.user.email,
-      })
+      }
     );
+    router.push(`/product/${doc.id}`);
   };
+
+  // const [users] = useCollection(session && collection(db, "startups"));
+  // console.log(users);
+
   return (
     <>
       <Header />
@@ -144,8 +154,9 @@ function createlisting() {
               </div>
             </div>
             <button
+              type="submit"
               className="my-auto bg-[#7A5AF8] text-white font-semibold text-lg  py-1 px-4 rounded-xl mt-4"
-              onClick={handleSubmit}
+              onClick={CreateAccount}
             >
               <p>Add Product</p>
             </button>
