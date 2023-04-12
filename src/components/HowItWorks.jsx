@@ -13,16 +13,13 @@ function HowItWorks() {
           <div className="flex flex-col lg:flex-row items-center justify-center">
             <div className="lg:w-1/2 flex flex-col">
               <p className="text-[#6938EF] font-poppins font-medium mb-2">
-                Just start writing{"-->"}{" "}
+              Log in and enjoy the ElatedX{"-->"}{" "}
               </p>
               <h1 className="font-semibold font-poppins text-3xl mb-5 text-gray-900 max-w-xl">
-                If you’re serious about growth, you need more than “thought
-                leadership” blog posts, courses, and podcasts
+              Interact with ElatedX and easily access the way to look at the tech startups.
               </h1>
               <p className="text-lg text-[#425466] font-inter max-w-xl">
-                You need advice, support, and feedback, that’s 100% tailored to
-                you. From operators that are actually “doing the things” (not
-                just writing about it on LinkedIn).
+              Your like and your dislike matters in the startup of everyone so give it to the most deserving one
               </p>
             </div>
             <div className="w-1/2 flex items-center justify-center">
@@ -32,16 +29,14 @@ function HowItWorks() {
           <div className="flex flex-col lg:flex-row items-center justify-center">
             <div className="lg:w-1/2 flex flex-col">
               <p className="text-[#6938EF] font-poppins font-medium mb-2">
-                Just start writing{"-->"}{" "}
+              On the way to invest{"-->"}{" "}
               </p>
               <h1 className="font-semibold font-poppins text-3xl mb-5 text-gray-900 max-w-xl">
-                If you’re serious about growth, you need more than “thought
-                leadership” blog posts, courses, and podcasts
+              The most impactful part of someone's career is "Think Twice, give rise"
               </h1>
               <p className="text-lg text-[#425466] font-inter max-w-xl">
-                You need advice, support, and feedback, that’s 100% tailored to
-                you. From operators that are actually “doing the things” (not
-                just writing about it on LinkedIn).
+              It is the brain of our website as this controls the process that regulates our theme and the user has to choose the best out of the list
+
               </p>
             </div>
             <div className="w-1/2 flex items-center justify-center">
@@ -51,16 +46,13 @@ function HowItWorks() {
           <div className="flex flex-col lg:flex-row items-center justify-center">
             <div className="lg:w-1/2 flex flex-col">
               <p className="text-[#6938EF] font-poppins font-medium mb-2">
-                Just start writing{"-->"}{" "}
+              Take a look at the product{"-->"}{" "}
               </p>
               <h1 className="font-semibold font-poppins text-3xl mb-5 text-gray-900 max-w-xl">
-                If you’re serious about growth, you need more than “thought
-                leadership” blog posts, courses, and podcasts
+              Most Anxious time for the product and the invester to have a contract in future.
               </h1>
               <p className="text-lg text-[#425466] font-inter max-w-xl">
-                You need advice, support, and feedback, that’s 100% tailored to
-                you. From operators that are actually “doing the things” (not
-                just writing about it on LinkedIn).
+              Get to know more about the product that you have selected and understand the work flow of that organization.
               </p>
             </div>
             <div className="w-1/2 flex items-center justify-center">

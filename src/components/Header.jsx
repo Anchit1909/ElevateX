@@ -8,7 +8,7 @@ function Header() {
     <section>
       <div className="flex space-x-80 h-16 bg-white">
         <div className="text-3xl ml-16 my-auto">
-          Product<span className="font-bold">Hunt</span>
+          Elevate<span className="font-bold">X</span>
         </div>
         <div className="flex space-x-8 my-auto text-lg">
           <div>Explore Products</div>

@@ -10,9 +10,9 @@ function Startup() {
         <div className="px-4 xl:px-4 lg:border-r-2 pr-3 border-gray-200 mt-24">
           <div className="flex">
             <div className="md:w-6/12">
-              <img className="w-40" src="/com_logo.jpg" alt="" />
+              <img className="w-40" src="/company1.png" alt="" />
               <h1 className="text-gray-600 text-2xl max-w-md">
-                Scheduled payment reminders for Venmo and Cash App
+             Your app,Enterpise Ready
               </h1>
             </div>
             <div className="md:ml-72 mt-10  space-x-2 flex flex-col md:flex-row items-center justify-start">
@@ -26,21 +26,16 @@ function Startup() {
           </div>
           <div className="mt-6 text-gray-600 text-lg">
             <h1>
-              Packaging all the main components of a generative AI SaaS, OpenAI
-              &amp; Stable Diffusion APIs, Auth, CMS, admin dashboard, Stripe
-              and landing page. Quickly launch an AI business MVP, saving time
-              and money on early development, focus capital on defining use
-              case.
+            Start seeling to enterpise customers with just a few lines of code.Implement feature like single sign-on in minutes instead of months.
             </h1>
             <h1>
-              Launched in SaaS, Artificial Intelligence, Tech by AI Starter | An
-              AI "Biz-in-a-Box"
+              
             </h1>
           </div>
           <hr className="w-11/12 my-10 bg-gray-200" />
           <div className="flex space-x-2 md:space-x-10 mt-20">
-            <img className="w-6/12 h-64" src="dp7.jpg" alt="" />
-            <img className="w-6/12 h-64" src="dp7.jpg" alt="" />
+            <img className="w-6/12 h-64" src="my1.webp" alt="" />
+            <img className="w-5/12 h-64" src="my2.jpg" alt="" />
           </div>
           <div className="flex mt-10 space-x-2 justify-center items-center">
             <img className="w-10 h-10 rounded-3xl" src="dp1.jpg" alt="" />
@@ -65,10 +60,7 @@ function Startup() {
             </h1>
             <h1 className="text-gray-600 pl-10 text-lg">
               <i>
-                "Thanks for checking out our launch - if you have any APIs you
-                think would be useful for us to aggregate as part of our modular
-                package, do let us know! Our roadmap is pretty exciting and
-                include a lot more collabs and partnerships - do stay tuned! :)"
+              We invite you to share your valuable feedback and suggestions with us, whether it's regarding our serivces, user experience, pricing, or any other aspect. Your input will play a crucial role in shaping the future of WorkOs, and we are genuinely excited to learn from your expertise.
               </i>
             </h1>
           </div>

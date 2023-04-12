@@ -12,7 +12,7 @@ function Testimonial() {
         <div className="absolute -right-40  w-[400px] h-[400px] bg-[#F1BB31]/20 rounded-full -z-10 blur-3xl" />
         {/* <div className="absolute -right-24 bottom-8 w-96 h-96 bg-[#DFF363]/20 rounded-full -z-10 blur-3xl" /> */}
         <p className="px-2 md:px-0 text-center text-[#6D798B] font-inter">
-          Thousands of founders are using ProduictHunt to promote and sell their
+          Thousands of founders are using ElevateX to promote and sell their
           startups
         </p>
         <div className="flex space-x-2 justify-center items-center mt-4">
@@ -55,7 +55,7 @@ function Testimonial() {
         <div className="flex flex-col lg:flex-row my-12 mx-24 space-x-14 border rounded-xl bg-white">
           <img
             className="h-96 w-74 lg:w-72 rounded-xl lg:rounded-tl-xl lg:rounded-bl-xl lg:rounded-br-none lg:rounded-tr-none"
-            src="/startup.jpg"
+            src="/startup4.jpg"
             alt=""
           />
           <div className="flex flex-col items-start">
@@ -70,7 +70,7 @@ function Testimonial() {
                   Akarsh Saxena
                 </p>
                 <p className="text-[#6D798B] font-inter font-medium text-sm text-left">
-                  Founder of Riya Gupta
+                  Founder of WebSolutionsZ
                 </p>
               </div>
               <button className="mt-4 md:mt-0 text-[#6938EF] border-2 font-inter rounded-3xl py-1 px-4 font-bold border-[#6938EF] hover:underline text-lg">

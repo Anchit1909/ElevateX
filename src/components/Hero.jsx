@@ -6,15 +6,14 @@ function Hero() {
       <div className="flex flex-col max-w-screen-xl items-center justify-center mx-auto gap-x-24 md:flex-row">
         <div className="my-36 flex flex-col">
           <h1 className="px-3 lg-px-0 font-semibold text-6xl text-gray-900 font-poppins max-w-lg relative">
-            Post Your Digital Product and Get Discovered
+          Post Your Startup Idea and Get Discovered
           </h1>
           <div className="absolute -left-40 top-1 w-96 h-96 bg-[#B3AAFC]/40 rounded-full blur-3xl -z-10" />
           <div className="absolute -left-20 -top-28 w-96 h-96 bg-[#E841E1]/40 rounded-full blur-3xl -z-10" />
           <div className="absolute left-28 -top-28 w-96 h-96 bg-[#F1BB31]/40 rounded-full blur-3xl -z-10" />
           <div className="absolute left-52 -top-28 w-96 h-96 bg-[#DFF363]/40 rounded-full blur-3xl -z-10" />
           <p className="px-3 lg-px-0 text-gray-600 mt-4 text-lg max-w-md font-inter">
-            Get the kind of personalized advice you’d never find reading blog
-            posts or weatching courses.
+           Get the platform to show your startup or invest your money in some useful startups.
           </p>
           <div className="px-3 lg-px-0 mt-4 space-x-2 font-inter flex flex-row items-center">
             <button className="my-auto bg-[#7A5AF8] text-white font-bold text-lg py-1 px-4 rounded-3xl">
@@ -34,3 +33,4 @@ function Hero() {
 }
 
 export default Hero;
+
