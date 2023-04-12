@@ -7,11 +7,11 @@ function products() {
   const { data: session } = useSession();
   return (
     session && (
-      <div>
+      <>
         <Header />
         <Product />
         <Footer />
-      </div>
+      </>
     )
   );
 }

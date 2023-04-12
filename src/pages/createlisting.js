@@ -20,9 +20,9 @@ function createlisting() {
   const [imageurl, setImageurl] = useState("");
   const [description, setDescription] = useState("");
 
-  const CreateAccount = async () => {
+  const createAccount = async () => {
     const doc = await addDoc(
-      collection(db, "user", session.user.email, "startups"),
+      collection(db, "user", session.user.email, "startup"),
       {
         name: name,
         tagline: tagline,
@@ -34,8 +34,27 @@ function createlisting() {
         userEmail: session.user.email,
       }
     );
-    router.push(`/startup/${doc.id}`);
+    router.push(`/product/${doc.id}`);
   };
+  //   .then((docRef) => {
+  //     console.log("Document has been added successfully");
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+  // };
+  // const dbRef = collection(db, "user", session.user.email, "startups");
+  // const data = {
+  //   name: "Raja Tamil",
+  //   country: "Canada",
+  // };
+  // addDoc(dbRef, data)
+  //   .then((docRef) => {
+  //     console.log("Document has been added successfully");
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
 
   // const [users] = useCollection(session && collection(db, "startups"));
   // console.log(users);
@@ -156,7 +175,7 @@ function createlisting() {
             <button
               type="submit"
               className="my-auto bg-[#7A5AF8] text-white font-semibold text-lg  py-1 px-4 rounded-xl mt-4"
-              onClick={CreateAccount}
+              onClick={createAccount}
             >
               <p>Add Product</p>
             </button>

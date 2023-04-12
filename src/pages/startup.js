@@ -4,7 +4,7 @@ import React from "react";
 
 function Startup() {
   return (
-    <div>
+    <>
       <Header />
       <div className="flex flex-col lg:flex-row max-w-screen-xl mx-auto">
         <div className="px-4 xl:px-4 lg:border-r-2 pr-3 border-gray-200 mt-24">
@@ -20,7 +20,7 @@ function Startup() {
                 Visit
               </button>
               <button className="my-auto bg-violet-500 text-white font-bold text-lg py-1 px-4 rounded-md">
-                <p className="login">Upvote</p>
+                Upvote
               </button>
             </div>
           </div>
@@ -135,12 +135,12 @@ function Startup() {
             <hr className="bg-gray-900" />
             <h1 className="mt-6">WANT TO LAUNCH YOUR OWN PRODUCT --&gt;</h1>
             <button className="mt-2 w-60 bg-violet-500 text-white font-bold text-lg py-1 px-4 rounded-3xl">
-              <p className="login">Get Started</p>
+              Get Started
             </button>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 export default Startup;

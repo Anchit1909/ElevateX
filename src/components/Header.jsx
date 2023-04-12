@@ -1,5 +1,5 @@
 import React from "react";
-  import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 
 function Header() {
@@ -34,7 +34,7 @@ function Header() {
             className="my-auto bg-violet-500 text-white font-bold text-lg py-1 px-10 rounded-3xl"
             onClick={() => signIn()}
           >
-            <p className="login">Login</p>
+            Login
           </button>
         )}
       </div>

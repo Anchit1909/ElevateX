@@ -18,7 +18,7 @@ function Hero() {
           </p>
           <div className="px-3 lg-px-0 mt-4 space-x-2 font-inter flex flex-row items-center">
             <button className="my-auto bg-[#7A5AF8] text-white font-bold text-lg py-1 px-4 rounded-3xl">
-              <p className="login">Get Started</p>
+              Get Started
             </button>
             <button className="text-[#6938EF] border rounded-3xl py-1 px-4 font-bold border-[#6938EF] hover:underline">
               View Demo Video

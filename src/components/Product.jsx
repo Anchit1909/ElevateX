@@ -11,9 +11,9 @@ import ProductRow from "./ProductRow";
 function Product() {
   const { data: session } = useSession();
   // const [StartupList, setStartupList] = useState([]);
-  // const startupCollection = collection(db, "startups");
+  // const startupCollection = collection(db, "startups");\
 
-  const [startups, loading] = useCollection(
+  const [value, loading, error] = useCollection(
     session && collection(db, "user", session.user.email, "startups")
   );
 
@@ -36,7 +36,7 @@ function Product() {
   // }, []);
 
   return (
-    <div>
+    <>
       <div className="flex">
         <div className=" w-[1200px] border-r-gray-400 border-r-2 h-[1000px] mt-2">
           <div className="mt-10 ml-40 mr-[230px] pt-8 pb-8 pl-3 pr-10 bg-gradient-to-r from-violet-200 to-pink-200 flex  ">
@@ -79,7 +79,7 @@ function Product() {
               Content Creation
             </button>
             <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full">
-              WEb3
+              Web3
             </button>
             <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full">
               Fin-tech
@@ -96,9 +96,9 @@ function Product() {
             The Next Big Thing
           </div>
           <div>
-            {startups.docs.map((doc) => (
+            {/* {value.docs.map((doc) => (
               <ProductRow key={doc.id} id={doc.id} />
-            ))}
+            ))} */}
           </div>
           <div className="mt-4 ml-40  mr-[200px] flex">
             <img src="/box1.jpg" alt="" className="w-40 h-40" />
@@ -204,7 +204,7 @@ function Product() {
           <Rightbar />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

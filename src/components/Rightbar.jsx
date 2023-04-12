@@ -66,7 +66,7 @@ function Rightbar() {
           <h1 className="mt-6">WANT TO LAUNCH YOUR OWN PRODUCT --&gt;</h1>
           <div className="mt-2">
             <button className="my-auto bg-[#7A5AF8] text-white font-bold text-lg py-1 px-4 rounded-3xl">
-              <p>Create your Listing</p>
+              Create your Listing
             </button>
           </div>
         </div>
