@@ -6,11 +6,11 @@ import { GiGreatPyramid } from "react-icons/gi";
 function Features() {
   return (
     <section>
-      <div className="flex max-w-screen-xl mx-auto items-center justify-center gap-x-40 py-20">
+      <div className="flex flex-col xl:flex-row max-w-screen-xl mx-auto items-center justify-center gap-x-40 py-20 px-4 2xl:px-0">
         {/* Left */}
         <div>
           <div className="mb-12">
-            <button className="border px-4 rounded-2xl text-[#269140] bg-[#E9FBEF] font-inter font-bold">
+            <button className="border px-4 sm:px- rounded-2xl text-[#269140] bg-[#E9FBEF] font-inter font-bold">
               Features
             </button>
           </div>
@@ -71,7 +71,7 @@ function Features() {
           </div>
         </div>
         {/* Right */}
-        <div className="w-1/2 relative">
+        <div className="w-1/2 relative mr-36 md:mr-12 lg:mr-0">
           <div className="absolute right-10 -top-6 w-96 h-96 bg-[#B3AAFC]/20 rounded-full -z-10 blur-3xl" />
           <div className="absolute -right-10 -top-2 w-96 h-96 bg-[#E841E1]/10 rounded-full -z-10 blur-3xl" />
           <div className="absolute -right-28 top-8 w-96 h-96 bg-[#F1BB31]/10 rounded-full -z-10 blur-3xl" />

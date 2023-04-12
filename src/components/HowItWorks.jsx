@@ -3,15 +3,15 @@ import React from "react";
 function HowItWorks() {
   return (
     <section className="py-28 bg-white">
-      <div className="max-w-screen-xl mx-auto">
+      <div className="max-w-screen-xl mx-auto px-4">
         <div className="mb-12">
           <button className="border px-4 rounded-2xl text-[#269140] bg-[#E9FBEF] font-inter font-bold">
             How it works
           </button>
         </div>
         <div className="flex flex-col gap-y-32">
-          <div className="flex flex-row items-center justify-center">
-            <div className="w-1/2 flex flex-col">
+          <div className="flex flex-col lg:flex-row items-center justify-center">
+            <div className="lg:w-1/2 flex flex-col">
               <p className="text-[#6938EF] font-poppins font-medium mb-2">
                 Just start writing{"-->"}{" "}
               </p>
@@ -29,8 +29,8 @@ function HowItWorks() {
               <img src="/box1.jpg" alt="" width="420px" />
             </div>
           </div>
-          <div className="flex flex-row items-center justify-center">
-            <div className="w-1/2 flex flex-col">
+          <div className="flex flex-col lg:flex-row items-center justify-center">
+            <div className="lg:w-1/2 flex flex-col">
               <p className="text-[#6938EF] font-poppins font-medium mb-2">
                 Just start writing{"-->"}{" "}
               </p>
@@ -48,8 +48,8 @@ function HowItWorks() {
               <img src="/box1.jpg" alt="" width="420px" />
             </div>
           </div>
-          <div className="flex flex-row items-center justify-center">
-            <div className="w-1/2 flex flex-col">
+          <div className="flex flex-col lg:flex-row items-center justify-center">
+            <div className="lg:w-1/2 flex flex-col">
               <p className="text-[#6938EF] font-poppins font-medium mb-2">
                 Just start writing{"-->"}{" "}
               </p>
