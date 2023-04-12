@@ -1,4 +1,6 @@
+import Link from "next/link";
 import React from "react";
+import Footer from "./Footer";
 
 function Rightbar() {
   return (
@@ -65,9 +67,11 @@ function Rightbar() {
           <hr className="bg-gray-900" />
           <h1 className="mt-6">WANT TO LAUNCH YOUR OWN PRODUCT --&gt;</h1>
           <div className="mt-2">
-            <button className="my-auto bg-[#7A5AF8] text-white font-bold text-lg py-1 px-4 rounded-3xl">
-              Create your Listing
-            </button>
+            <Link href="/createlisting">
+              <button className="my-auto bg-[#7A5AF8] text-white font-bold text-lg py-1 px-4 rounded-3xl">
+                Create your Listing
+              </button>
+            </Link>
           </div>
         </div>
       </div>

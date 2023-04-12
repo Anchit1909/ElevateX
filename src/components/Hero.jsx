@@ -1,3 +1,4 @@
+import { signIn } from "next-auth/react";
 import React from "react";
 
 function Hero() {
@@ -17,7 +18,10 @@ function Hero() {
             posts or weatching courses.
           </p>
           <div className="px-3 lg-px-0 mt-4 space-x-2 font-inter flex flex-row items-center">
-            <button className="my-auto bg-[#7A5AF8] text-white font-bold text-lg py-1 px-4 rounded-3xl">
+            <button
+              onClick={() => signIn("google", { callbackUrl: "/products" })}
+              className="my-auto bg-[#7A5AF8] text-white font-bold text-lg py-1 px-4 rounded-3xl"
+            >
               Get Started
             </button>
             <button className="text-[#6938EF] border rounded-3xl py-1 px-4 font-bold border-[#6938EF] hover:underline">

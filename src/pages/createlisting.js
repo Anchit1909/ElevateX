@@ -21,9 +21,8 @@ function createlisting() {
   const [description, setDescription] = useState("");
 
   const createAccount = async () => {
-    const doc = await addDoc(
-      collection(db, "user", session.user.email, "startup"),
-      {
+    try {
+      await addDoc(collection(db, "user", session.user.email, "startups"), {
         name: name,
         tagline: tagline,
         productLink: link,
@@ -32,9 +31,13 @@ function createlisting() {
         description: description,
         createdAt: serverTimestamp(),
         userEmail: session.user.email,
-      }
-    );
-    router.push(`/product/${doc.id}`);
+      });
+    } catch (err) {
+      console.error(err);
+    }
+
+    // router.push(`/products/${doc.id}`);
+    // console.log()
   };
   //   .then((docRef) => {
   //     console.log("Document has been added successfully");
@@ -67,13 +70,10 @@ function createlisting() {
           <h2 className="mb-4 text-xl font-bold text-gray-900">
             Add a new Startup Listing
           </h2>
-          <form action="#">
+          <form>
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
               <div className="sm:col-span-2">
-                <label
-                  htmlFor="name"
-                  className="block mb-2 text-sm font-medium text-gray-900"
-                >
+                <label className="block mb-2 text-sm font-medium text-gray-900">
                   Startup Name
                 </label>
                 <input
@@ -82,15 +82,12 @@ function createlisting() {
                   id="name"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   placeholder="Type startup name"
-                  required=""
+                  required={true}
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="w-full">
-                <label
-                  htmlFor="tagline"
-                  className="block mb-2 text-sm font-medium text-gray-900"
-                >
+                <label className="block mb-2 text-sm font-medium text-gray-900">
                   Enter tagline for startup
                 </label>
                 <input
@@ -99,15 +96,12 @@ function createlisting() {
                   id="tagline"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   placeholder="tagline"
-                  required=""
+                  required={true}
                   onChange={(e) => setTagline(e.target.value)}
                 />
               </div>
               <div className="w-full">
-                <label
-                  htmlFor="link"
-                  className="block mb-2 text-sm font-medium text-gray-900"
-                >
+                <label className="block mb-2 text-sm font-medium text-gray-900">
                   Website Link
                 </label>
                 <input
@@ -116,15 +110,12 @@ function createlisting() {
                   id="link"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   placeholder="link"
-                  required=""
+                  required={true}
                   onChange={(e) => setLink(e.target.value)}
                 />
               </div>
               <div>
-                <label
-                  htmlFor="category"
-                  className="block mb-2 text-sm font-medium text-gray-900"
-                >
+                <label className="block mb-2 text-sm font-medium text-gray-900">
                   Category
                 </label>
                 <select
@@ -132,7 +123,7 @@ function createlisting() {
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                   onChange={(e) => setCategory(e.target.value)}
                 >
-                  <option defaultValue="">Select category</option>
+                  <option defaultValue="FI">Select category</option>
                   <option value="FI">Finance</option>
                   <option value="AI">AI</option>
                   <option value="W3">Web3</option>
@@ -140,10 +131,7 @@ function createlisting() {
                 </select>
               </div>
               <div>
-                <label
-                  htmlFor="imagelink"
-                  className="block mb-2 text-sm font-medium text-gray-900"
-                >
+                <label className="block mb-2 text-sm font-medium text-gray-900">
                   Image URL
                 </label>
                 <input
@@ -152,15 +140,12 @@ function createlisting() {
                   id="imagelink"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   placeholder="url"
-                  required=""
+                  required={true}
                   onChange={(e) => setImageurl(e.target.value)}
                 />
               </div>
               <div className="sm:col-span-2">
-                <label
-                  htmlFor="description"
-                  className="block mb-2 text-sm font-medium text-gray-900"
-                >
+                <label className="block mb-2 text-sm font-medium text-gray-900">
                   Product Description
                 </label>
                 <textarea
@@ -172,13 +157,14 @@ function createlisting() {
                 ></textarea>
               </div>
             </div>
-            <button
-              type="submit"
-              className="my-auto bg-[#7A5AF8] text-white font-semibold text-lg  py-1 px-4 rounded-xl mt-4"
-              onClick={createAccount}
-            >
-              <p>Add Product</p>
-            </button>
+            <div onClick={createAccount}>
+              <button
+                type="submit"
+                className="my-auto bg-[#7A5AF8] text-white font-semibold text-lg  py-1 px-4 rounded-xl mt-4"
+              >
+                Add Product
+              </button>
+            </div>
           </form>
         </div>
       </section>

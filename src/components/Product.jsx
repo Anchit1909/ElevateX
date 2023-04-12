@@ -8,16 +8,15 @@ import { db } from "../../firebase";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { useSession } from "next-auth/react";
 import ProductRow from "./ProductRow";
+import Footer from "./Footer";
 function Product() {
   const { data: session } = useSession();
   // const [StartupList, setStartupList] = useState([]);
   // const startupCollection = collection(db, "startups");\
 
-  const [value, loading, error] = useCollection(
-    session && collection(db, "user", session.user.email, "startups")
-  );
+  const [value, loading, error] = useCollection(collection(db, "startups"));
 
-  console.log(startups);
+  // console.log(startups);
 
   // const getstartupList = async () => {
   //   try {
@@ -39,7 +38,7 @@ function Product() {
     <>
       <div className="flex">
         <div className=" w-[1200px] border-r-gray-400 border-r-2 h-[1000px] mt-2">
-          <div className="mt-10 ml-40 mr-[230px] pt-8 pb-8 pl-3 pr-10 bg-gradient-to-r from-violet-200 to-pink-200 flex  ">
+          <div className="mt-10 ml-40 mr-[230px] pt-8 pb-8 pl-3 pr-10 bg-gradient-to-r from-violet-200 to-pink-200 flex">
             <p className="not-italic font-medium text-3xl">
               Welcome to ProductHunt
             </p>
@@ -96,108 +95,20 @@ function Product() {
             The Next Big Thing
           </div>
           <div>
-            {/* {value.docs.map((doc) => (
-              <ProductRow key={doc.id} id={doc.id} />
-            ))} */}
-          </div>
-          <div className="mt-4 ml-40  mr-[200px] flex">
-            <img src="/box1.jpg" alt="" className="w-40 h-40" />
-            <div className="mt-8 ml-4 ">
-              <p className=" not-italic font-medium text-xl leading-3">ddd</p>
-              <br />
-              <p className="not-italic font-medium text-base leading-3 text-gray-700">
-                Turn your team into a productivity powerhouse
-              </p>
-            </div>
-            <div className="pl-4 pt-2 h-20 w-20 ml-[200px] mt-10 border-solid border-2 border-gray-400">
-              <AiFillLike size={40} color="gray" />{" "}
-              <div className="mt-2">1234</div>
-            </div>
-          </div>
-          <div className="mt-4 ml-40 mr-[200px] flex">
-            <img src="/box1.jpg" alt="" className="w-40 h-40" />
-            <div className="mt-8 ml-4 ">
-              <p className=" not-italic font-medium text-xl leading-3">
-                Monday.com for Productivity
-              </p>
-              <br></br>
-              <p className="not-italic font-medium text-base leading-3 text-gray-700">
-                Turn your team into a productivity powerhouse
-              </p>
-            </div>
-            <div className="pl-4 pt-2 h-20 w-20 ml-[200px] mt-10 border-solid border-2 border-gray-400">
-              {" "}
-              <AiFillLike size={40} color="gray" />{" "}
-              <div className="mt-2">1234</div>
-            </div>
-          </div>
-          <div className="mt-4 ml-40 mr- mr-[200px] flex">
-            <img src="/box1.jpg" alt="" className="w-40 h-40" />
-            <div className="mt-8 ml-4 ">
-              <p className=" not-italic font-medium text-xl leading-3">
-                Monday.com for Productivity
-              </p>{" "}
-              <br></br>{" "}
-              <p className="not-italic font-medium text-base leading-3 text-gray-700">
-                Turn your team into a productivity powerhouse
-              </p>
-            </div>
-            <div className="pl-4 pt-2 h-20 w-20 ml-[200px] mt-10 border-solid border-2 border-gray-400">
-              {" "}
-              <AiFillLike size={40} color="gray" />{" "}
-              <div className="mt-2">1234</div>
-            </div>
-          </div>
-          <div className="mt-4 ml-40 mr-[200px] flex">
-            <img src="/box1.jpg" alt="" className="w-40 h-40" />
-            <div className="mt-8 ml-4 ">
-              <p className=" not-italic font-medium text-xl leading-3">
-                Monday.com for Productivity
-              </p>{" "}
-              <br></br>{" "}
-              <p className="not-italic font-medium text-base leading-3 text-gray-700">
-                Turn your team into a productivity powerhouse
-              </p>
-            </div>
-            <div className="pl-4 pt-2 h-20 w-20 ml-[200px] mt-10 border-solid border-2 border-gray-400">
-              {" "}
-              <AiFillLike size={40} color="gray" />{" "}
-              <div className="mt-2">1234</div>
-            </div>
-          </div>
-          <div className="mt-4 ml-40  mr-[200px] flex">
-            <img src="/box1.jpg" alt="" className="w-40 h-40" />
-            <div className="mt-8 ml-4 ">
-              <p className=" not-italic font-medium text-xl leading-3">
-                Monday.com for Productivity
-              </p>{" "}
-              <br></br>{" "}
-              <p className="not-italic font-medium text-base leading-3 text-gray-700">
-                Turn your team into a productivity powerhouse
-              </p>
-            </div>
-            <div className="pl-4 pt-2 h-20 w-20 ml-[200px] mt-10 border-solid border-2 border-gray-400">
-              {" "}
-              <AiFillLike size={40} color="gray" />{" "}
-              <div className="mt-2">1234</div>
-            </div>
-          </div>
-          <div className="mt-4 ml-40  mr-[200px] flex">
-            <img src="/box1.jpg" alt="" className="w-40 h-40" />
-            <div className="mt-8 ml-4 ">
-              <p className=" not-italic font-medium text-xl leading-3">
-                Monday.com for Productivity
-              </p>{" "}
-              <br></br>{" "}
-              <p className="not-italic font-medium text-base leading-3 text-gray-700">
-                Turn your team into a productivity powerhouse
-              </p>
-            </div>
-            <div className="pl-4 pt-2 h-20 w-20 ml-[200px] mt-10 border-solid border-2 border-gray-400">
-              {" "}
-              <AiFillLike size={40} color="gray" />{" "}
-              <div className="mt-2">1234</div>
-            </div>
+            <p>
+              {error && <strong>Error: {JSON.stringify(error)}</strong>}
+              {loading && <span>Collection: Loading...</span>}
+              {value && (
+                <span>
+                  {value.docs.map((doc) => (
+                    /* <React.Fragment key={doc.id}> */
+                    /* {JSON.stringify(doc.data().Name)},{" "} */
+                    <ProductRow key={doc.id} data={doc.data()} />
+                    /* </React.Fragment> */
+                  ))}
+                </span>
+              )}
+            </p>
           </div>
         </div>
         <div className="mr-2">
