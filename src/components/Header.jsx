@@ -9,9 +9,7 @@ function Header() {
     <section>
       <div className="flex space-x-80 bg-white py-3">
         <div className="text-3xl ml-16 my-auto">
-          <Link href="/">
-            Product<span className="font-bold">Hunt</span>
-          </Link>
+          Product<span className="font-bold">Hunt</span>
         </div>
         <div className="flex space-x-8 my-auto text-lg">
           <Link href="/products">Explore Products</Link>
