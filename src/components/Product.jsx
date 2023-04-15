@@ -3,18 +3,27 @@
 import React, { useEffect, useState } from "react";
 import Rightbar from "@/components/Rightbar";
 import { AiFillLike } from "react-icons/ai";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../firebase";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  orderBy,
+  query,
+} from "firebase/firestore";
+import { app } from "../../firebase";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { useSession } from "next-auth/react";
 import ProductRow from "./ProductRow";
 import Footer from "./Footer";
 function Product() {
   const { data: session } = useSession();
+  const db = getFirestore(app);
   // const [StartupList, setStartupList] = useState([]);
   // const startupCollection = collection(db, "startups");\
 
-  const [value, loading, error] = useCollection(collection(db, "startups"));
+  const [value, loading, error] = useCollection(
+    query(collection(db, "startups"), orderBy("createdAt", "asc"))
+  );
 
   // console.log(startups);
 

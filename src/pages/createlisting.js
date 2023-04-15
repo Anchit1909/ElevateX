@@ -24,18 +24,19 @@ function createlisting() {
   const [category, setCategory] = useState("");
   const [imageurl, setImageurl] = useState("");
   const [description, setDescription] = useState("");
+  // console.log(session.user.email);
   const db = getFirestore(app);
 
   const createListing = async (e) => {
-    setTimeout(function () {}, 1000);
     e.preventDefault();
-    const dbRef = collection(db, "user", session.user.email, "startups");
+    setTimeout(function () {}, 1000);
+    const dbRef = collection(db, "startups");
     await addDoc(dbRef, {
-      name: name,
+      heading: name,
       tagline: tagline,
       productLink: link,
       category: category,
-      imageLink: imageurl,
+      image: imageurl,
       description: description,
       createdAt: serverTimestamp(),
       userEmail: session.user.email,
