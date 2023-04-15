@@ -9,7 +9,7 @@ function Footer() {
         <div className="flex items-center text-black font-regular text-2xl md:text-2xl">
           <Link href="/">
             <p>
-              Product<span className="font-bold">Hunt</span>
+              Elevate<span className="font-bold">X</span>
             </p>
           </Link>
         </div>
