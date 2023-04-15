@@ -16,9 +16,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig); //this is known as singleton pattern, i.e., we want to initialize our app only once.
-const db = getFirestore(app);
+// const db = getFirestore(app);
 
-export { db };
+// export { db };
+export { app };
 
 // const app = initializeApp(firebaseConfig);
 // export const db = initializeFirestore(app, {

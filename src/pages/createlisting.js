@@ -5,8 +5,13 @@ import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useSession } from "next-auth/react";
-import { db } from "../../firebase";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { app } from "../../firebase";
+import {
+  addDoc,
+  collection,
+  getFirestore,
+  serverTimestamp,
+} from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { useRouter } from "next/navigation";
 
@@ -19,48 +24,29 @@ function createlisting() {
   const [category, setCategory] = useState("");
   const [imageurl, setImageurl] = useState("");
   const [description, setDescription] = useState("");
+  const db = getFirestore(app);
 
-  const createAccount = async () => {
-    try {
-      await addDoc(collection(db, "user", session.user.email, "startups"), {
-        name: name,
-        tagline: tagline,
-        productLink: link,
-        category: category,
-        imageLink: imageurl,
-        description: description,
-        createdAt: serverTimestamp(),
-        userEmail: session.user.email,
+  const createListing = async (e) => {
+    setTimeout(function () {}, 1000);
+    e.preventDefault();
+    const dbRef = collection(db, "user", session.user.email, "startups");
+    await addDoc(dbRef, {
+      name: name,
+      tagline: tagline,
+      productLink: link,
+      category: category,
+      imageLink: imageurl,
+      description: description,
+      createdAt: serverTimestamp(),
+      userEmail: session.user.email,
+    })
+      .then((docRef) => {
+        console.log("Document has been added successfully");
+      })
+      .catch((error) => {
+        console.log(error);
       });
-    } catch (err) {
-      console.error(err);
-    }
-
-    // router.push(`/products/${doc.id}`);
-    // console.log()
   };
-  //   .then((docRef) => {
-  //     console.log("Document has been added successfully");
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
-  // };
-  // const dbRef = collection(db, "user", session.user.email, "startups");
-  // const data = {
-  //   name: "Raja Tamil",
-  //   country: "Canada",
-  // };
-  // addDoc(dbRef, data)
-  //   .then((docRef) => {
-  //     console.log("Document has been added successfully");
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
-
-  // const [users] = useCollection(session && collection(db, "startups"));
-  // console.log(users);
 
   return (
     <>
@@ -70,7 +56,7 @@ function createlisting() {
           <h2 className="mb-4 text-xl font-bold text-gray-900">
             Add a new Startup Listing
           </h2>
-          <form>
+          <form onSubmit={createListing}>
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
               <div className="sm:col-span-2">
                 <label className="block mb-2 text-sm font-medium text-gray-900">
@@ -157,14 +143,13 @@ function createlisting() {
                 ></textarea>
               </div>
             </div>
-            <div onClick={createAccount}>
-              <button
-                type="submit"
-                className="my-auto bg-[#7A5AF8] text-white font-semibold text-lg  py-1 px-4 rounded-xl mt-4"
-              >
-                Add Product
-              </button>
-            </div>
+
+            <button
+              type="submit"
+              className="my-auto bg-[#7A5AF8] text-white font-semibold text-lg  py-1 px-4 rounded-xl mt-4"
+            >
+              Add Product
+            </button>
           </form>
         </div>
       </section>
