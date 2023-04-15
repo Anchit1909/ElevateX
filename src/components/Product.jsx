@@ -25,24 +25,6 @@ function Product() {
     query(collection(db, "startups"), orderBy("createdAt", "asc"))
   );
 
-  // console.log(startups);
-
-  // const getstartupList = async () => {
-  //   try {
-  //     const data = await getDocs(startupCollection);
-  //     const filteredData = data.docs.map((doc, id) => ({
-  //       ...doc.data(),
-  //       // id: doc.id,
-  //     }));
-  //     setStartupList(filteredData);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-  // useEffect(() => {
-  //   getstartupList();
-  // }, []);
-
   return (
     <>
       <div className="flex">
