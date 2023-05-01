@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import { Poppins, Inter } from "@next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import cx from "classnames";
 import { SessionProvider } from "next-auth/react";
 

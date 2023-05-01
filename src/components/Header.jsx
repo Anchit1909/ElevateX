@@ -6,9 +6,9 @@ import Link from "next/link";
 function Header() {
   const { data: session } = useSession();
   return (
-    <section>
-      <div className="flex space-x-80 bg-white py-3">
-        <div className="text-3xl ml-16 my-auto">
+    <section className="mx-auto">
+      <div className="flex space-x-80 bg-white py-3 pl-32">
+        <div className="text-3xl my-auto">
           <Link href="/">
             Elevate<span className="font-bold">X</span>
           </Link>

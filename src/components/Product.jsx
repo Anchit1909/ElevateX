@@ -18,8 +18,6 @@ import Footer from "./Footer";
 function Product() {
   const { data: session } = useSession();
   const db = getFirestore(app);
-  // const [StartupList, setStartupList] = useState([]);
-  // const startupCollection = collection(db, "startups");\
 
   const [value, loading, error] = useCollection(
     query(collection(db, "startups"), orderBy("createdAt", "asc"))

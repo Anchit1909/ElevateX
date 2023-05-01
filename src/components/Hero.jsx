@@ -30,7 +30,8 @@ function Hero() {
           </div>
         </div>
         <div className="flex items-center justify-center w-1/2">
-          <img src="/heroimage2.jpg" className="h-[600px] " alt="" />
+          {/* <img src="/heroimage5.png" className="h-[440px] " alt="" /> */}
+          <img src="/hero_image.png" className="h-[500px] " alt="" />
         </div>
       </div>
     </section>
