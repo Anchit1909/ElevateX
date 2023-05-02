@@ -14,6 +14,9 @@ import {
 } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { useRouter } from "next/navigation";
+import { storage } from "../../firebase";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { v4 } from "uuid";
 
 function createlisting() {
   const router = useRouter();
@@ -23,12 +26,27 @@ function createlisting() {
   const [link, setLink] = useState("");
   const [category, setCategory] = useState("");
   const [imageurl, setImageurl] = useState("");
+  const [imageUpload, setImageUpload] = useState(null);
   const [description, setDescription] = useState("");
+  const [imageDownloadURL, setImageDownloadURL] = useState("");
   // console.log(session.user.email);
   const db = getFirestore(app);
 
+  const uploadImage = () => {
+    if (imageUpload == null) return;
+    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+    uploadBytes(imageRef, imageUpload)
+      .then((snapshot) => {
+        return getDownloadURL(snapshot.ref);
+      })
+      .then((downloadURL) => {
+        setImageDownloadURL(downloadURL);
+      });
+  };
+
   const createListing = async (e) => {
     e.preventDefault();
+    // uploadImage();
     setTimeout(function () {}, 1000);
     const dbRef = collection(db, "startups");
     await addDoc(dbRef, {
@@ -36,7 +54,7 @@ function createlisting() {
       tagline: tagline,
       productLink: link,
       category: category,
-      image: imageurl,
+      image: imageDownloadURL,
       description: description,
       createdAt: serverTimestamp(),
       userEmail: session.user.email,
@@ -130,6 +148,22 @@ function createlisting() {
                   required={true}
                   onChange={(e) => setImageurl(e.target.value)}
                 />
+              </div>
+              <div>
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Upload Image
+                </label>
+                <input
+                  type="file"
+                  name="imagefile"
+                  accept="image/png, image/jpeg, image/jpg"
+                  maxLength="3000000"
+                  id="imagefile"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  required={true}
+                  onChange={(e) => setImageUpload(e.target.files[0])}
+                />
+                <button onClick={uploadImage}>Upload</button>
               </div>
               <div className="sm:col-span-2">
                 <label className="block mb-2 text-sm font-medium text-gray-900">
