@@ -5,7 +5,7 @@ import { AiFillLike } from "react-icons/ai";
 function ProductRow({ id, data }) {
   return (
     <div className="mt-8 flex flex-row items-center justify-center">
-      <img src={data.image} alt="" className="w-18 h-18" />
+      <img src={data.image} alt="" className="w-18 h-14" />
       <div className="ml-4 ">
         <Link href="/startup">
           <p className=" not-italic font-medium text-xl leading-3">
