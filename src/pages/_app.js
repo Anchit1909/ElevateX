@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { Poppins, Inter } from "next/font/google";
 import cx from "classnames";
 import { SessionProvider } from "next-auth/react";
+import { Toaster } from "react-hot-toast";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -24,6 +25,7 @@ export default function App({
   return (
     <SessionProvider session={session}>
       <main className={cx(poppins.variable, inter.variable)}>
+        <Toaster />
         <Component {...pageProps} />
       </main>
     </SessionProvider>

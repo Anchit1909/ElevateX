@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import Header from "@/components/Header";
@@ -17,6 +15,7 @@ import { useRouter } from "next/navigation";
 import { storage } from "../../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
+import { toast } from "react-hot-toast";
 
 function createlisting() {
   const router = useRouter();
@@ -32,21 +31,42 @@ function createlisting() {
   // console.log(session.user.email);
   const db = getFirestore(app);
 
-  const uploadImage = () => {
+  // const uploadImage = () => {
+  //   if (imageUpload == null) return;
+  //   const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+  //   uploadBytes(imageRef, imageUpload)
+  //     .then((snapshot) => {
+  //       return getDownloadURL(snapshot.ref);
+  //     })
+  //     .then((downloadURL) => {
+  //       setImageDownloadURL(downloadURL);
+  //     })
+  //     .then(() => {
+  //       toast.success("File Uploaded Successfully", {
+  //         position: "bottom-right",
+  //       });
+  //     });
+  // };
+
+  const uploadImage = async () => {
     if (imageUpload == null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
-    uploadBytes(imageRef, imageUpload)
-      .then((snapshot) => {
-        return getDownloadURL(snapshot.ref);
-      })
-      .then((downloadURL) => {
-        setImageDownloadURL(downloadURL);
-      });
+    try {
+      const snapshot = await uploadBytes(imageRef, imageUpload);
+      const downloadURL = await getDownloadURL(snapshot.ref);
+      // setImageDownloadURL(downloadURL);
+      // toast.success("File Uploaded Successfully", {
+      //   position: "bottom-right",
+      // });
+      return downloadURL;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const createListing = async (e) => {
     e.preventDefault();
-    // uploadImage();
+    let downloadURL = await uploadImage();
     setTimeout(function () {}, 1000);
     const dbRef = collection(db, "startups");
     await addDoc(dbRef, {
@@ -54,13 +74,16 @@ function createlisting() {
       tagline: tagline,
       productLink: link,
       category: category,
-      image: imageDownloadURL,
+      image: downloadURL,
       description: description,
       createdAt: serverTimestamp(),
       userEmail: session.user.email,
     })
       .then((docRef) => {
-        console.log("Document has been added successfully");
+        // console.log("Document has been added successfully");
+        toast.success("Listing created Successfully", {
+          position: "bottom-right",
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -163,7 +186,7 @@ function createlisting() {
                   required={true}
                   onChange={(e) => setImageUpload(e.target.files[0])}
                 />
-                <button onClick={uploadImage}>Upload</button>
+                {/* <button onClick={uploadImage}>Upload</button> */}
               </div>
               <div className="sm:col-span-2">
                 <label className="block mb-2 text-sm font-medium text-gray-900">
