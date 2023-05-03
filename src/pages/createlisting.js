@@ -158,7 +158,7 @@ function createlisting() {
                   <option value="SM">Sales and Marketing</option>
                 </select>
               </div>
-              <div>
+              {/* <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900">
                   Image URL
                 </label>
@@ -171,7 +171,7 @@ function createlisting() {
                   required={true}
                   onChange={(e) => setImageurl(e.target.value)}
                 />
-              </div>
+              </div> */}
               <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900">
                   Upload Image
