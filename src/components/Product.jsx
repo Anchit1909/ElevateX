@@ -39,43 +39,43 @@ function Product() {
             TRENDING TOPICS
           </div>
           <div className="flex ml-40 mt-4 mr-[200px] flex-wrap">
-            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full">
+            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full sm:w-auto sm:px-7">
               AI
             </button>
-            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full">
+            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full sm:w-auto sm:px-7">
               Productivity Tech
             </button>
-            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full">
+            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full sm:w-auto sm:px-7">
               Devlopers Tools
             </button>
-            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full">
+            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full sm:w-auto sm:px-7">
               Tech
             </button>
-            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full">
+            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full sm:w-auto sm:px-7">
               Marketing
             </button>
-            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full">
+            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full sm:w-auto sm:px-7">
               User Experience
             </button>
-            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full">
+            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full sm:w-auto sm:px-7">
               Design Tools
             </button>
-            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full">
+            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full sm:w-auto sm:px-7">
               Growth Hacking
             </button>
-            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full">
+            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full sm:w-auto sm:px-7">
               Content Creation
             </button>
-            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full">
+            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full sm:w-auto sm:px-7">
               Web3
             </button>
-            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full">
+            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full sm:w-auto sm:px-7">
               Fin-tech
             </button>
-            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full">
+            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full sm:w-auto sm:px-7">
               Ecommerce
             </button>
-            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full">
+            <button className=" bg-white w-48 h-12 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 not-italic font-bold text-xl mr-4 mt-2 leading-6 pt-2 pb-2 rounded-full sm:w-auto sm:px-7">
               Twitter
             </button>
           </div>
@@ -84,20 +84,20 @@ function Product() {
             The Next Big Thing
           </div>
           <div>
-            <p>
+            <div className="flex flex-col">
               {error && <strong>Error: {JSON.stringify(error)}</strong>}
               {loading && <span>Collection: Loading...</span>}
               {value && (
-                <span>
+                <div className="flex flex-col ml-40">
                   {value.docs.map((doc) => (
                     /* <React.Fragment key={doc.id}> */
                     /* {JSON.stringify(doc.data().Name)},{" "} */
                     <ProductRow key={doc.id} data={doc.data()} />
                     /* </React.Fragment> */
                   ))}
-                </span>
+                </div>
               )}
-            </p>
+            </div>
           </div>
         </div>
         <div className="mr-2">
