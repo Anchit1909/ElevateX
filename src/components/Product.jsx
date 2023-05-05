@@ -25,10 +25,10 @@ function Product() {
 
   return (
     <>
-      <div className="bg-gradient-to-r from-violet-200 to-pink-200 h-[500px] flex flex-col justify-center items-center">
+      <div className="bg-gradient-to-r from-violet-200 to-pink-200 md:h-[500px] flex flex-col justify-center items-center h-[800px] ">
           <div className="  flex  flex-col w-1/2 mx-auto p-4 my-auto">
-            <p className="not-italic font-medium text-7xl ">
-              Welcome to Elevate<span className="font-bold text-7xl">X</span>!
+            <p className="not-italic md:font-medium  md:text-7xl text-4xl ">
+              Welcome to Elevate<span className="font-bold md:text-7xl text-4xl">X</span>!
             </p>
             <div className="  mt-2 not-italic font-medium text-lg flex flex-wrap text-gray-600">
            A cutting edge technology to connect startups and investors and help your money to grow to next level.
@@ -37,14 +37,14 @@ function Product() {
 
          
           <div className="w-full p-4 mt-auto">
-          <div className="ml-40 mt-6 not-italic font-medium text-base leading-3 text-gray-600  mr-[200px]">
+          <div className="md:ml-40 mt-6 not-italic font-medium text-base leading-3 text-gray-600  md:mr-[200px]">
             TRENDING TOPICS
           </div>
-          <div className="flex ml-40 mt-4 mr-[200px] flex-wrap ">
-            <button className=" bg-white w-48 h-8 hover:bg-black hover:text-white  text-black border-2 border-solid border-black not-italic font-bold text-lg mr-2 mt-2   sm:w-auto sm:px-7">
+          <div className="flex md:ml-40 mt-4 md:mr-[200px] flex-wrap ">
+            <button className=" bg-white w-48 h-8 hover:bg-black hover:text-white  text-black border-2 border-solid border-black not-italic font-bold text-lg mr-2 mt-2 sm:w-auto sm:px-7">
               AI
             </button>
-            <button className=" bg-white w-48 h-8 hover:bg-purple-700 hover:text-white  text-purple-700 border-2 border-solid border-purple-700 not-italic font-bold text-lg mr-2 mt-2   sm:w-auto sm:px-7">
+            <button className=" bg-white w-48 h-8 hover:bg-purple-700 hover:text-white  text-purple-700 border-2 border-solid border-purple-700 not-italic font-bold text-lg mr-2 mt-2 sm:w-auto sm:px-7">
               Productivity Tech
             </button>
             <button className=" bg-white w-48 h-8 hover:bg-green-700 hover:text-white  text-green-700 border-2 border-solid border-green-700 not-italic font-bold text-lg mr-2 mt-2  sm:w-auto sm:px-7">
@@ -60,10 +60,10 @@ function Product() {
           </div>
           </div>
       <div className="flex">
-        <div className=" w-[1200px] border-r-gray-400 border-r-2 h-[1000px] mt-2">
+        <div className=" w-[1200px]  md:border-r-gray-400 md:border-r-2 h-[1000px] mt-2">
         
-          <hr className="mt-4 ml-40  mr-[200px]"></hr>
-          <div className="mt-4 ml-40  mr-[200px] not-italic font-semibold text-3xl">
+          <hr className="mt-4 mx-10 md:ml-40  md:mr-[200px]"></hr>
+          <div className="mt-4 ml-10 md:ml-40  md:mr-[200px] not-italic font-semibold text-3xl">
             The Next Big Thing
           </div>
           <div>
@@ -71,7 +71,7 @@ function Product() {
               {error && <strong>Error: {JSON.stringify(error)}</strong>}
               {loading && <span>Collection: Loading...</span>}
               {value && (
-                <div className="flex flex-col ml-40">
+                <div className="flex flex-col ml-10 md:ml-40">
                   {value.docs.map((doc) => (
                     /* <React.Fragment key={doc.id}> */
                     /* {JSON.stringify(doc.data().Name)},{" "} */
