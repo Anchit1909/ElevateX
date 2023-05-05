@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 function Rightbar() {
   return (
-    <div>
+    <div className="hidden md:flex md:flex-col">
       <div className="mt-32 w-3/12">
         <div className="pl-7 w-72">
           <div className="text-gray-700">TRENDING LAUNCHES --&gt;</div>
