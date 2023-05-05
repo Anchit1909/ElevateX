@@ -14,9 +14,9 @@ function Header() {
   return (
     <nav className="flex items-center justify-between flex-wrap bg-white p-4">
       <div className="flex items-center flex-shrink-0 mr-6 text-3xl">
-      <Link href="/">
-            Elevate<span className="font-bold">X</span>
-          </Link>
+        <Link href="/">
+          Elevate<span className="font-bold">X</span>
+        </Link>
       </div>
       <div className="block lg:hidden">
         <button
@@ -29,10 +29,7 @@ function Header() {
             xmlns="http://www.w3.org/2000/svg"
           >
             <title>Menu</title>
-            <path
-              d="M0 3h20v2H0zm0 6h20v2H0zm0 6h20v2H0z"
-              fillRule="evenodd"
-            />
+            <path d="M0 3h20v2H0zm0 6h20v2H0zm0 6h20v2H0z" fillRule="evenodd" />
           </svg>
         </button>
       </div>

@@ -1,4 +1,5 @@
 import { signIn } from "next-auth/react";
+import Image from "next/image";
 import React from "react";
 
 function Hero() {
@@ -31,7 +32,7 @@ function Hero() {
         </div>
         <div className="flex items-center justify-center w-1/2">
           {/* <img src="/heroimage5.png" className="h-[440px] " alt="" /> */}
-          <img src="/hero_image.png" className="h-[500px] " alt="" />
+          <Image src="/hero_image.png" height={500} width={500} alt="" />
         </div>
       </div>
     </section>

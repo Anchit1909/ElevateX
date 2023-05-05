@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 function Testimonial() {
@@ -16,12 +17,8 @@ function Testimonial() {
           startups
         </p>
         <div className="flex space-x-2 justify-center items-center mt-4">
-          <img
-            className="w-10 h-10 rounded-full object-cover"
-            src="/dp1.jpg"
-            alt=""
-          />
-          <img
+          <Image src="/founder_images.png" alt="" height={42} width={348} />
+          {/* <img
             className="w-10 h-10 rounded-full object-cover"
             src="/dp2.jpg"
             alt=""
@@ -50,16 +47,24 @@ function Testimonial() {
             className="w-10 h-10 rounded-full object-cover"
             src="/dp7.jpg"
             alt=""
-          />
+          /> */}
         </div>
         <div className="flex flex-col lg:flex-row my-12 mx-24 space-x-14 border rounded-xl bg-white">
-          <img
-            className="h-96 w-74 lg:w-72 rounded-xl lg:rounded-tl-xl lg:rounded-bl-xl lg:rounded-br-none lg:rounded-tr-none"
+          <Image
+            className="rounded-xl lg:rounded-tl-xl lg:rounded-bl-xl lg:rounded-br-none lg:rounded-tr-none"
             src="/startup4.jpg"
             alt=""
+            height={384}
+            width={288}
           />
           <div className="flex flex-col items-start">
-            <img className="h-8 mt-8" src="/logo.png" alt="" />
+            <Image
+              className="mt-8"
+              src="/logo.png"
+              height={32}
+              width={144}
+              alt=""
+            />
             <h1 className="text-2xl mt-6 font-poppins font-medium max-w-xl px-2 md:px-0">
               “If you’re serious about growth, you need more than “thought
               leadership” blog posts, courses, and podcasts.”

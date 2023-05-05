@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { GiDarkSquad } from "react-icons/gi";
 import { GiCoins } from "react-icons/gi";
@@ -20,7 +21,8 @@ function Features() {
               leadership” blog posts, courses, and podcasts
             </h1>
             <p className="text-lg text-gray-600 font-inter max-w-3xl">
-            ElevateX is a cutting-edge platform designed to bridge the gap between startups and investors.
+              ElevateX is a cutting-edge platform designed to bridge the gap
+              between startups and investors.
             </p>
           </div>
           <div className="flex flex-col space-y-4">
@@ -30,10 +32,12 @@ function Features() {
               </div>
               <div className="mx-3 text-black max-w-lg">
                 <div className="font-bold font-inter text-lg">
-                Search for the investor
+                  Search for the investor
                 </div>
                 <div className="text-[#6D798B] font-inter text-sm">
-                Take your startup to the next height by finding an investor who can add their experience and funds to your startup and make it reach the next level.
+                  Take your startup to the next height by finding an investor
+                  who can add their experience and funds to your startup and
+                  make it reach the next level.
                 </div>
               </div>
             </div>
@@ -43,10 +47,12 @@ function Features() {
               </div>
               <div className="mx-3 text-black max-w-lg">
                 <div className="font-bold font-inter text-lg">
-                Invest in some leading startups
+                  Invest in some leading startups
                 </div>
                 <div className="text-[#6D798B] font-inter text-sm">
-                Get your money invested in some brilliant startups and increase your growth as well as their growth by making money in your bank use.
+                  Get your money invested in some brilliant startups and
+                  increase your growth as well as their growth by making money
+                  in your bank use.
                 </div>
               </div>
             </div>
@@ -56,10 +62,12 @@ function Features() {
               </div>
               <div className="mx-3 text-black max-w-lg">
                 <div className="font-bold font-inter text-lg">
-                Community Support
+                  Community Support
                 </div>
                 <div className="text-[#6D798B] font-inter text-sm">
-                Get your startup to stand out in the crowd by showcasing it in front of people who are working in the same field and a reverberating with their experiences.
+                  Get your startup to stand out in the crowd by showcasing it in
+                  front of people who are working in the same field and a
+                  reverberating with their experiences.
                 </div>
               </div>
             </div>
@@ -71,8 +79,14 @@ function Features() {
           <div className="absolute -right-10 -top-2 w-96 h-96 bg-[#E841E1]/10 rounded-full -z-10 blur-3xl" />
           <div className="absolute -right-28 top-8 w-96 h-96 bg-[#F1BB31]/10 rounded-full -z-10 blur-3xl" />
           <div className="absolute -right-36 top-20 w-96 h-96 bg-[#DFF363]/20 rounded-full -z-10 blur-3xl" />
-          <img className="mt-20 w-80" src="startup1.jpg" alt="" />
-          <img className="ml-40 -mt-32 w-80" src="startup2.jpg" alt="" />
+          <Image src="/startup1.jpg" width={320} height={320} alt="" />
+          <Image
+            className="ml-40 -mt-32"
+            src="/startup2.jpg"
+            width={320}
+            height={320}
+            alt=""
+          />
         </div>
       </div>
     </section>

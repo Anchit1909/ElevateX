@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 function Companies() {
@@ -9,7 +10,7 @@ function Companies() {
           companies like:
         </p>
         <div className="">
-          <img src="/companies_logos.png" alt="" />
+          <Image src="/companies_logos.png" width={1222} height={63} alt="" />
         </div>
       </div>
     </section>

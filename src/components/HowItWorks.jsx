@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 function HowItWorks() {
@@ -25,7 +26,7 @@ function HowItWorks() {
               </p>
             </div>
             <div className="w-1/2 flex items-center justify-center">
-              <img src="/hiwform.png" alt="" width="420px" />
+              <Image src="/hiwform.png" alt="" width={420} height={420} />
             </div>
           </div>
           <div className="flex flex-col lg:flex-row items-center justify-center">
@@ -44,7 +45,7 @@ function HowItWorks() {
               </p>
             </div>
             <div className="w-1/2 flex items-center justify-center">
-              <img src="/hiw2.png" alt="" width="420px" />
+              <Image src="/hiw2.png" alt="" width={420} height={420} />
             </div>
           </div>
           <div className="flex flex-col lg:flex-row items-center justify-center">
@@ -62,7 +63,7 @@ function HowItWorks() {
               </p>
             </div>
             <div className="w-1/2 flex items-center justify-center">
-              <img src="/hiw3.png" alt="" width="420px" />
+              <Image src="/hiw3.png" alt="" width={420} height={420} />
             </div>
           </div>
         </div>
