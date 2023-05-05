@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function Footer() {
   return (
-    <section className="mt-10 py-10 h-16 text-center" id="footer">
+    <section className="mt-16 py-10 h-16 text-center" id="footer">
       <div className="max-w-screen-xl mx-auto flex flex-col items-center justify-center md:justify-between h-full px-12 md:flex-row">
         <div className="flex items-center text-black font-regular text-2xl md:text-2xl">
           <Link href="/">

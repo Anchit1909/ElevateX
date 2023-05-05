@@ -12,7 +12,7 @@ function Header() {
   };
 
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-white p-4">
+    <nav className="flex items-center justify-between flex-wrap bg-white py-4 px-32 relative z-10">
       <div className="flex items-center flex-shrink-0 mr-6 text-3xl">
         <Link href="/">
           Elevate<span className="font-bold">X</span>

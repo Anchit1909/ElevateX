@@ -10,7 +10,7 @@ function products() {
       <>
         <Header />
         <Product />
-        {/* <Footer /> */}
+        <Footer />
       </>
     )
   );

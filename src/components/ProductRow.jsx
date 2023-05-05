@@ -1,29 +1,32 @@
 import Link from "next/link";
 import React from "react";
-import { AiFillLike } from "react-icons/ai";
+import { IoTriangle } from "react-icons/io5";
 
 function ProductRow({ id, data }) {
   return (
-    <div className="mt-20 md:ml-30 flex flex-row ">
-      <img src={data.image} alt="" className="w-20 h-20" />
-      <div className=" ">
+    <div className="flex flex-row items-center justify-center mt-8">
+      <img
+        src={data.image}
+        alt=""
+        className="w-[70px] h-[70px] object-contain rounded-md"
+      />
+      <div className="space-y-2">
         <Link href="/startup">
-          <div className="flex not-italic font-medium text-xl leading-3 pl-10">
+          <div className="flex font-medium text-xl leading-3 pl-10 font-inter">
             {data.heading}
           </div>
         </Link>
-        <br />
-        <div className=" flex not-italic font-medium text-base leading-6 text-gray-700 pl-10">
+        <div className=" flex not-italic font-medium text-base leading-6 text-[#4B587C] pl-10">
           {data.tagline}
           {/* {JSON.stringify(data.Name).replace(/"/g, "")} */}
         </div>
       </div>
-      <div className="ml-auto border-solid flex flex-col md:mr-40">
-        <AiFillLike size={40} color="#7A5AF8" /> <div className=" ">1234</div>
+      <div className="ml-auto border-2 py-3 px-4 border-solid border-[#D9D9D9] rounded-[5px] flex flex-col items-center justify-center md:mr-40">
+        <IoTriangle size={26} color="#475467" />{" "}
+        <div className="text-[#4B587C] font-inter font-medium">1234</div>
       </div>
     </div>
   );
 }
 
 export default ProductRow;
-
