@@ -23,7 +23,7 @@ function ProductRow({ id, data }) {
       </div>
       <div className="ml-auto border-2 py-3 px-4 border-solid border-[#D9D9D9] rounded-[5px] flex flex-col items-center justify-center md:mr-40">
         <IoTriangle size={26} color="#475467" />{" "}
-        <div className="text-[#4B587C] font-inter font-medium">1234</div>
+        <div className="text-[#4B587C] font-inter font-medium">1,234</div>
       </div>
     </div>
   );

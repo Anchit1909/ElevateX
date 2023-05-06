@@ -25,7 +25,7 @@ function Product() {
 
   return (
     <div className="bg-[#FEFDFB]">
-      <div className="bg-[#F5F5F3] md:h-[400px] flex flex-col h-[300px] relative">
+    <div className="bg-[#F5F5F3] md:h-[400px] flex flex-col h-[300px] relative">
         <div className="absolute -left-60 -top-36 w-96 h-96 bg-[#B3AAFC]/30 rounded-full blur-3xl" />
         <div className="absolute -left-40 -top-36 w-96 h-96 bg-[#E841E1]/20 rounded-full blur-3xl" />
         <div className="absolute -top-36 w-96 h-96 bg-[#F1BB31]/20 rounded-full blur-3xl" />
@@ -46,19 +46,19 @@ function Product() {
             TRENDING TOPICS:
           </div>
           <div className="flex md:ml-40 mt-2 md:mr-[200px] flex-wrap font-inter space-x-2 z-10">
-            <button className="bg-white w-42 h-8 hover:bg-black hover:text-white text-black border-2 border-solid border-black font-bold text-lg mr-2 mt-2 sm:w-auto px-6 rounded-md">
+            <button className="w-42 h-8 hover:bg-black hover:text-white text-black border-2 border-solid border-black font-bold text-lg mr-2 mt-2 sm:w-auto px-6 rounded-md">
               AI
             </button>
-            <button className=" bg-white w-48 h-8 hover:bg-purple-700 hover:text-white  text-purple-700 border-2 border-solid border-purple-700 font-bold text-lg mr-2 mt-2 sm:w-auto px-6 rounded-md">
+            <button className="w-48 h-8 hover:bg-purple-700 hover:text-white  text-purple-700 border-2 border-solid border-purple-700 font-bold text-lg mr-2 mt-2 sm:w-auto px-6 rounded-md">
               Productivity
             </button>
-            <button className=" bg-white w-48 h-8 hover:bg-green-700 hover:text-white  text-green-700 border-2 border-solid border-green-700 font-bold text-lg mr-2 mt-2  sm:w-auto px-6 rounded-md">
+            <button className="w-48 h-8 hover:bg-green-700 hover:text-white  text-green-700 border-2 border-solid border-green-700 font-bold text-lg mr-2 mt-2  sm:w-auto px-6 rounded-md">
               Developer Tools
             </button>
-            <button className="bg-white w-48 h-8 hover:bg-yellow-600 hover:text-white  text-yellow-600 border-2 border-solid border-yellow-600 font-bold text-lg mr-2 mt-2 sm:w-auto px-6 rounded-md">
+            <button className="w-48 h-8 hover:bg-yellow-600 hover:text-white  text-yellow-600 border-2 border-solid border-yellow-600 font-bold text-lg mr-2 mt-2 sm:w-auto px-6 rounded-md">
               Tech
             </button>
-            <button className=" bg-white w-48 h-8 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 font-bold text-lg mr-2 mt-2  sm:w-auto px-6 rounded-md">
+            <button className="w-48 h-8 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 font-bold text-lg mr-2 mt-2  sm:w-auto px-6 rounded-md">
               Marketing
             </button>
           </div>
