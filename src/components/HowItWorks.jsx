@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React from "react";
-
+import { motion, useViewportScroll, useTransform,AnimatePresence  } from 'framer-motion';
+import { useEffect } from "react";
+import { useInView } from 'react-intersection-observer';
 function HowItWorks() {
   return (
     <section className="py-28 bg-white ">

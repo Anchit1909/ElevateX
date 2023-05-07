@@ -22,6 +22,7 @@ export default function App({
   Component,
   pageProps: { session, ...pageProps },
 }) {
+ 
   return (
     <SessionProvider session={session}>
       <main className={cx(poppins.variable, inter.variable)}>

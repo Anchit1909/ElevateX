@@ -3,8 +3,14 @@ import React from "react";
 import { GiDarkSquad } from "react-icons/gi";
 import { GiCoins } from "react-icons/gi";
 import { GiGreatPyramid } from "react-icons/gi";
-
+import { motion, useViewportScroll, useTransform,AnimatePresence  } from 'framer-motion';
+import { useEffect } from "react";
+import { useInView } from 'react-intersection-observer';
 function Features() {
+  const [ref, inView] = useInView({
+    triggerOnce: false, // Animation triggers only once
+    threshold: 0.1, // Trigger animation when the component is 10% visible
+  });
   return (
     <section>
       <div className="flex flex-col xl:flex-row max-w-screen-xl mx-auto items-center justify-center gap-x-40 py-20 px-4 2xl:px-0">
@@ -15,8 +21,11 @@ function Features() {
               Features
             </button>
           </div>
-          <div className="mt-6 space-y-4 mb-12 flex flex-col">
-            <h1 className="font-semibold text-3xl text-gray-900 font-poppins max-w-3xl">
+          <motion.div className="mt-6 space-y-4 mb-12 flex flex-col" ref={ref}
+    initial={{ opacity: 0, y: -300 }}
+    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : -300 }}
+    transition={{ duration: 2 }}>
+            <h1 className="font-semibold text-3xl text-gray-900 font-poppins max-w-3xl " >
               If you’re serious about growth, you need more than “thought
               leadership” blog posts, courses, and podcasts
             </h1>
@@ -24,8 +33,11 @@ function Features() {
               ElevateX is a cutting-edge platform designed to bridge the gap
               between startups and investors.
             </p>
-          </div>
-          <div className="flex flex-col space-y-4">
+          </motion.div>
+          <motion.div className="flex flex-col space-y-4" ef={ref}
+    initial={{ opacity: 0, y: 300 }}
+    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 300 }}
+    transition={{ duration: 2 }}>
             <div className="flex flex-row items-center">
               <div>
                 <GiCoins size={32} color="#7A5AF8" />
@@ -71,10 +83,13 @@ function Features() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
         {/* Right */}
-        <div className="w-1/2 relative mr-36 md:mr-12 lg:mr-0">
+        <motion.div className="w-1/2 relative mr-36 md:mr-12 lg:mr-0" ef={ref}
+    initial={{ opacity: 0, x: 300 }}
+    animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 300 }}
+    transition={{ duration: 2}}>
           <div className="absolute right-10 -top-6 w-96 h-96 bg-[#B3AAFC]/20 rounded-full -z-10 blur-3xl" />
           <div className="absolute -right-10 -top-2 w-96 h-96 bg-[#E841E1]/10 rounded-full -z-10 blur-3xl" />
           <div className="absolute -right-28 top-8 w-96 h-96 bg-[#F1BB31]/10 rounded-full -z-10 blur-3xl" />
@@ -87,7 +102,7 @@ function Features() {
             height={320}
             alt=""
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
