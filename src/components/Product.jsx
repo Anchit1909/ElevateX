@@ -63,7 +63,7 @@ function Product() {
           </div>
         </div>
       </div>
-      <div className="flex h-screen">
+      <div className="flex h-auto">
         <div className="md:w-[70%] w-full md:border-r-2 md:border-r-gray-200 h-auto my-8">
           <div className="">
             <div className="flex flex-col -mt-4">
