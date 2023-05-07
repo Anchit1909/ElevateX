@@ -22,10 +22,9 @@ function Product() {
   const [value, loading, error] = useCollection(
     query(collection(db, "startups"), orderBy("createdAt", "asc"))
   );
-
   return (
     <div className="bg-[#FEFDFB]">
-    <div className="bg-[#F5F5F3] md:h-[400px] flex flex-col h-[300px] relative">
+      <div className="bg-[#F5F5F3] md:h-[400px] flex flex-col h-[300px] relative">
         <div className="absolute -left-60 -top-36 w-96 h-96 bg-[#B3AAFC]/30 rounded-full blur-3xl" />
         <div className="absolute -left-40 -top-36 w-96 h-96 bg-[#E841E1]/20 rounded-full blur-3xl" />
         <div className="absolute -top-36 w-96 h-96 bg-[#F1BB31]/20 rounded-full blur-3xl" />
@@ -75,7 +74,7 @@ function Product() {
                   {value.docs.map((doc) => (
                     /* <React.Fragment key={doc.id}> */
                     /* {JSON.stringify(doc.data().Name)},{" "} */
-                    <ProductRow key={doc.id} data={doc.data()} />
+                    <ProductRow key={doc.id} data={doc.data()} id={doc.id} />
                     /* </React.Fragment> */
                   ))}
                 </div>

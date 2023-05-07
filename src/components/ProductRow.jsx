@@ -2,7 +2,8 @@ import Link from "next/link";
 import React from "react";
 import { IoTriangle } from "react-icons/io5";
 
-function ProductRow({ id, data }) {
+function ProductRow({ key, data, id }) {
+  console.log(id);
   return (
     <div className="flex flex-row items-center justify-center mt-8">
       <img
@@ -11,7 +12,7 @@ function ProductRow({ id, data }) {
         className="w-[70px] h-[70px] object-contain rounded-md"
       />
       <div className="space-y-2">
-        <Link href="/startup">
+        <Link href={`/startup/${id}`}>
           <div className="flex font-medium text-xl leading-3 pl-10 font-inter">
             {data.heading}
           </div>
