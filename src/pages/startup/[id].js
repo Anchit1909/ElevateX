@@ -45,7 +45,7 @@ function Startup({ datas }) {
           <div className="absolute -top-36 w-96 h-96 bg-[#F1BB31]/20 rounded-full blur-3xl" />
           <div className="absolute left-32 -top-36 w-96 h-96 bg-[#DFF363]/10 rounded-full blur-3xl" />
           <div className="md:w-1/2 space-y-1 z-10">
-            <img height={60} width={60} src={data.image} alt="" />
+            <img height={60} width={60} src={data.logo} alt="" />
             <h2 className="font-poppins font-medium text-3xl text-black">
               {data.heading}
             </h2>
@@ -80,14 +80,14 @@ function Startup({ datas }) {
             <div className="flex justify-center space-x-2 md:space-x-10 mt-10">
               <Image
                 className=""
-                src="/my1.webp"
+                src={data.image1}
                 width={400}
                 height={220}
                 alt=""
               />
               <Image
                 className=""
-                src="/my2.jpg"
+                src={data.image2}
                 width={400}
                 height={220}
                 alt=""
@@ -123,7 +123,7 @@ function Startup({ datas }) {
                 About the product
               </h1>
               <p className="font-inter mt-2 leading-8 text-[#292524]">
-                Hi ElevateX 👋
+                {/* Hi ElevateX 👋
                 <br /> "Article Summary powered by ChatGPT" maker here! 🚀
                 <br />
                 Today, we’re launching "Article Summary powered by ChatGPT"
@@ -137,7 +137,8 @@ function Startup({ datas }) {
                 <br /> - Summarize web articles
                 <br /> - Keyboard shortcut to start summarizing
                 <br /> - Customize prompts as you want Hope this helps your
-                learning process!
+                learning process! */}
+                {data.aboutProduct}
               </p>
             </div>
           </div>

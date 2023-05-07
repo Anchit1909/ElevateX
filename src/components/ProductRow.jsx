@@ -7,7 +7,7 @@ function ProductRow({ key, data, id }) {
   return (
     <div className="flex flex-row items-center justify-center mt-8">
       <img
-        src={data.image}
+        src={data.logo}
         alt=""
         className="w-[70px] h-[70px] object-contain rounded-md"
       />
