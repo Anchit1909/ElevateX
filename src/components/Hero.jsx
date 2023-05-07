@@ -5,7 +5,7 @@ import React from "react";
 function Hero() {
   return (
     <section>
-      <div className="flex flex-col max-w-screen-xl items-center justify-center mx-auto md:flex-row">
+      <div className="flex flex-col max-w-screen-xl items-center justify-center mx-auto md:flex-row bg-fixed">
         <div className="my-36 flex flex-col flex-1">
           <h1 className="px-3 lg-px-0 font-semibold text-6xl text-gray-900 font-poppins max-w-lg md:max-w-xl relative z-10">
             Post Your Startup Idea and Get Discovered

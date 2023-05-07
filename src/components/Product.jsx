@@ -24,7 +24,7 @@ function Product() {
   );
 
   return (
-    <div className="bg-[#FEFDFB]">
+    <div className="bg-[#FEFDFB] ">
       <div className="bg-[#F5F5F3] md:h-[400px] flex flex-col h-[300px] relative">
         <div className="absolute -left-60 -top-36 w-96 h-96 bg-[#B3AAFC]/30 rounded-full blur-3xl" />
         <div className="absolute -left-40 -top-36 w-96 h-96 bg-[#E841E1]/20 rounded-full blur-3xl" />

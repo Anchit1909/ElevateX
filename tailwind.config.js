@@ -12,6 +12,10 @@ module.exports = {
       fontFamily: {
         poppins: ["var(--font-poppins)"],
         inter: ["var(--font-inter)"],
+        
+      },
+      backgroundImage: {
+        'local-image': "url(../../public/topinvestor1.jpg)",
       },
     },
   },
