@@ -7,7 +7,6 @@ import React, { useEffect, useState } from "react";
 import { getDoc, getFirestore, doc } from "firebase/firestore";
 import { app } from "../../../firebase";
 import { useRouter } from "next/router";
-import safeJsonStringify from "safe-json-stringify";
 
 async function fetchData(id, db) {
   // const db = getFirestore(app);
