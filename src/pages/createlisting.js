@@ -25,34 +25,20 @@ function createlisting() {
   const [link, setLink] = useState("");
   const [category, setCategory] = useState("");
   const [imageurl, setImageurl] = useState("");
-  const [imageUpload, setImageUpload] = useState(null);
+  const [logoUpload, setLogoUpload] = useState(null);
+  const [image1Upload, setImage1Upload] = useState(null);
+  const [image2Upload, setImage2Upload] = useState(null);
   const [description, setDescription] = useState("");
+  const [aboutProduct, setAboutProduct] = useState("");
   const [imageDownloadURL, setImageDownloadURL] = useState("");
   // console.log(session.user.email);
   const db = getFirestore(app);
 
-  // const uploadImage = () => {
-  //   if (imageUpload == null) return;
-  //   const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
-  //   uploadBytes(imageRef, imageUpload)
-  //     .then((snapshot) => {
-  //       return getDownloadURL(snapshot.ref);
-  //     })
-  //     .then((downloadURL) => {
-  //       setImageDownloadURL(downloadURL);
-  //     })
-  //     .then(() => {
-  //       toast.success("File Uploaded Successfully", {
-  //         position: "bottom-right",
-  //       });
-  //     });
-  // };
-
-  const uploadImage = async () => {
-    if (imageUpload == null) return;
-    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+  const uploadImage = async (imageName) => {
+    if (imageName == null) return;
+    const imageRef = ref(storage, `images/${imageName.name + v4()}`);
     try {
-      const snapshot = await uploadBytes(imageRef, imageUpload);
+      const snapshot = await uploadBytes(imageRef, imageName);
       const downloadURL = await getDownloadURL(snapshot.ref);
       // setImageDownloadURL(downloadURL);
       // toast.success("File Uploaded Successfully", {
@@ -66,7 +52,9 @@ function createlisting() {
 
   const createListing = async (e) => {
     e.preventDefault();
-    let downloadURL = await uploadImage();
+    let logoDownloadURL = await uploadImage(logoUpload);
+    let image1DownloadURL = await uploadImage(image1Upload);
+    let image2DownloadURL = await uploadImage(image2Upload);
     setTimeout(function () {}, 1000);
     const dbRef = collection(db, "startups");
     await addDoc(dbRef, {
@@ -74,8 +62,11 @@ function createlisting() {
       tagline: tagline,
       productLink: link,
       category: category,
-      image: downloadURL,
+      logo: logoDownloadURL,
       description: description,
+      image1: image1DownloadURL,
+      image2: image2DownloadURL,
+      aboutProduct: aboutProduct,
       createdAt: serverTimestamp(),
       userEmail: session.user.email,
     })
@@ -174,17 +165,17 @@ function createlisting() {
               </div> */}
               <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900">
-                  Upload Image
+                  Upload Logo
                 </label>
                 <input
                   type="file"
-                  name="imagefile"
+                  name="logoFile"
                   accept="image/png, image/jpeg, image/jpg"
                   maxLength="3000000"
-                  id="imagefile"
+                  id="logoFile"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   required={true}
-                  onChange={(e) => setImageUpload(e.target.files[0])}
+                  onChange={(e) => setLogoUpload(e.target.files[0])}
                 />
                 {/* <button onClick={uploadImage}>Upload</button> */}
               </div>
@@ -198,6 +189,50 @@ function createlisting() {
                   className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
                   placeholder="Write a short description of your product"
                   onChange={(e) => setDescription(e.target.value)}
+                ></textarea>
+              </div>
+              <div>
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Upload First Product Image
+                </label>
+                <input
+                  type="file"
+                  name="image1file"
+                  accept="image/png, image/jpeg, image/jpg"
+                  maxLength="3000000"
+                  id="image1file"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  required={true}
+                  onChange={(e) => setImage1Upload(e.target.files[0])}
+                />
+                {/* <button onClick={uploadImage}>Upload</button> */}
+              </div>
+              <div>
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Upload Second Product Image
+                </label>
+                <input
+                  type="file"
+                  name="image2file"
+                  accept="image/png, image/jpeg, image/jpg"
+                  maxLength="3000000"
+                  id="image2file"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  required={true}
+                  onChange={(e) => setImage2Upload(e.target.files[0])}
+                />
+                {/* <button onClick={uploadImage}>Upload</button> */}
+              </div>
+              <div className="sm:col-span-2">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Detailed Info about the product
+                </label>
+                <textarea
+                  id="aboutproduct"
+                  rows={10}
+                  className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+                  placeholder="Write a short description of your product"
+                  onChange={(e) => setAboutProduct(e.target.value)}
                 ></textarea>
               </div>
             </div>

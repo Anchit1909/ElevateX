@@ -3,9 +3,38 @@ import Header from "@/components/Header";
 import Rightbar from "@/components/Rightbar";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getDoc, getFirestore, doc } from "firebase/firestore";
+import { app } from "../../../firebase";
+import { useRouter } from "next/router";
 
-function Startup() {
+async function fetchData(id, db) {
+  // const db = getFirestore(app);
+  const docRef = doc(db, "startups", id);
+  // setTimeout(function () {}, 2000);
+  const docSnap = await getDoc(docRef);
+  const data = docSnap.exists() ? docSnap.data() : null;
+  // console.log(data);
+  return data;
+}
+
+function Startup({ datas }) {
+  const db = getFirestore(app);
+  // console.log(datas);
+  const [data, setData] = useState({});
+  const router = useRouter();
+  const ids = router.query.id;
+  console.log(ids);
+  useEffect(() => {
+    async function getData() {
+      const fetchedData = await fetchData(ids, db);
+      // console.log(data);
+      if (fetchedData) {
+        setData(fetchedData);
+      }
+    }
+    getData();
+  }, [ids]);
   return (
     <>
       <Header />
@@ -16,18 +45,20 @@ function Startup() {
           <div className="absolute -top-36 w-96 h-96 bg-[#F1BB31]/20 rounded-full blur-3xl" />
           <div className="absolute left-32 -top-36 w-96 h-96 bg-[#DFF363]/10 rounded-full blur-3xl" />
           <div className="md:w-1/2 space-y-1 z-10">
-            <Image height={45} width={45} src="/company1_cropped.png" alt="" />
+            <img height={60} width={60} src={data.logo} alt="" />
             <h2 className="font-poppins font-medium text-3xl text-black">
-              Work OS
+              {data.heading}
             </h2>
             <p className="text-[#0A171C] text-xl max-w-sm font-poppins">
-              Scheduled payment reminders for Venmo and Cash App
+              {data.tagline}
             </p>
           </div>
           <div className="mt-10 md:mt-0 space-x-2 flex flex-col md:flex-row items-center justify-start font-inter">
-            <button className="w-48 h-9 hover:bg-purple-700 hover:text-white text-[#7A5AF8] border-2 border-solid border-purple-700 font-bold text-lg sm:w-auto px-6 rounded-md">
-              VISIT
-            </button>
+            <a href={data.productLink} target="_blank">
+              <button className="w-48 h-9 hover:bg-purple-700 hover:text-white text-[#7A5AF8] border-2 border-solid border-purple-700 font-bold text-lg sm:w-auto px-6 rounded-md">
+                VISIT
+              </button>
+            </a>
             <button className=" bg-[#7A5AF8] text-white w-48 h-9 hover:bg-purple-700 hover:text-white font-bold text-lg sm:w-auto px-6 rounded-md">
               UPVOTE
             </button>
@@ -36,29 +67,27 @@ function Startup() {
         <div className="flex flex-col lg:flex-row max-w-screen-xl mx-auto mb-6">
           <div className="px-4 xl:px-4 lg:border-r-2 pr-3 border-gray-200 mt-12">
             <h1 className="text-[#4B587C] text-lg font-inter font-medium">
-              Start seeling to enterpise customers with just a few lines of
-              code. Implement feature like single sign-on in minutes instead of
-              months.
+              {data.description}
             </h1>
             <div className="flex my-4 items-center">
               <h1 className="text-[#4B587C] font-inter font-medium">
                 Launched in
               </h1>
               <button className="border-2 border-green-600 text-green-600 mx-2 px-2 rounded-md font-bold font-inter flex items-center justify-center">
-                Marketing
+                {data.category}
               </button>
             </div>
             <div className="flex justify-center space-x-2 md:space-x-10 mt-10">
               <Image
                 className=""
-                src="/my1.webp"
+                src={data.image1}
                 width={400}
                 height={220}
                 alt=""
               />
               <Image
                 className=""
-                src="/my2.jpg"
+                src={data.image2}
                 width={400}
                 height={220}
                 alt=""
@@ -94,7 +123,7 @@ function Startup() {
                 About the product
               </h1>
               <p className="font-inter mt-2 leading-8 text-[#292524]">
-                Hi ElevateX 👋
+                {/* Hi ElevateX 👋
                 <br /> "Article Summary powered by ChatGPT" maker here! 🚀
                 <br />
                 Today, we’re launching "Article Summary powered by ChatGPT"
@@ -108,7 +137,8 @@ function Startup() {
                 <br /> - Summarize web articles
                 <br /> - Keyboard shortcut to start summarizing
                 <br /> - Customize prompts as you want Hope this helps your
-                learning process!
+                learning process! */}
+                {data.aboutProduct}
               </p>
             </div>
           </div>
@@ -150,3 +180,22 @@ function Startup() {
   );
 }
 export default Startup;
+
+//Backend Code
+
+// export const getServerSideProps = async (context) => {
+//   const db = getFirestore(app);
+//   const docRef = doc(db, "startups", context.query.id);
+//   const docSnap = await getDoc(docRef);
+//   // const data = docSnap.exists() ? docSnap.data() : null;
+//   // console.log(data);
+//   return {
+//     props: {
+//       docSnap: docSnap.exists()
+//         ? JSON.parse(
+//             safeJsonStringify({ id: docSnap.id, ...docSnap.data() }) // needed for dates
+//           )
+//         : "",
+//     },
+//   };
+// };
