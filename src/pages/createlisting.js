@@ -25,34 +25,17 @@ function createlisting() {
   const [link, setLink] = useState("");
   const [category, setCategory] = useState("");
   const [imageurl, setImageurl] = useState("");
-  const [imageUpload, setImageUpload] = useState(null);
+  const [logoUpload, setLogoUpload] = useState(null);
   const [description, setDescription] = useState("");
   const [imageDownloadURL, setImageDownloadURL] = useState("");
   // console.log(session.user.email);
   const db = getFirestore(app);
 
-  // const uploadImage = () => {
-  //   if (imageUpload == null) return;
-  //   const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
-  //   uploadBytes(imageRef, imageUpload)
-  //     .then((snapshot) => {
-  //       return getDownloadURL(snapshot.ref);
-  //     })
-  //     .then((downloadURL) => {
-  //       setImageDownloadURL(downloadURL);
-  //     })
-  //     .then(() => {
-  //       toast.success("File Uploaded Successfully", {
-  //         position: "bottom-right",
-  //       });
-  //     });
-  // };
-
   const uploadImage = async () => {
-    if (imageUpload == null) return;
-    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+    if (logoUpload == null) return;
+    const imageRef = ref(storage, `images/${logoUpload.name + v4()}`);
     try {
-      const snapshot = await uploadBytes(imageRef, imageUpload);
+      const snapshot = await uploadBytes(imageRef, logoUpload);
       const downloadURL = await getDownloadURL(snapshot.ref);
       // setImageDownloadURL(downloadURL);
       // toast.success("File Uploaded Successfully", {
@@ -174,7 +157,7 @@ function createlisting() {
               </div> */}
               <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900">
-                  Upload Image
+                  Upload Logo
                 </label>
                 <input
                   type="file"
@@ -184,7 +167,7 @@ function createlisting() {
                   id="imagefile"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   required={true}
-                  onChange={(e) => setImageUpload(e.target.files[0])}
+                  onChange={(e) => setLogoUpload(e.target.files[0])}
                 />
                 {/* <button onClick={uploadImage}>Upload</button> */}
               </div>
