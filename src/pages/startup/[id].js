@@ -7,6 +7,9 @@ import { getDoc, getFirestore, doc, updateDoc } from "firebase/firestore";
 import { app } from "../../../firebase";
 import { useRouter } from "next/router";
 import { IoTriangle } from "react-icons/io5";
+import getStripe from "@/utils/get-stripejs";
+import { fetchPostJSON } from "@/utils/api-helpers";
+import Stripe from "stripe";
 
 async function fetchData(id, db) {
   // const db = getFirestore(app);
@@ -68,6 +71,31 @@ function Startup({ datas }) {
   //   .catch((error) => {
   //     console.log(error);
   //   });
+  const item = ["investment call", 4999];
+
+  const createCheckoutSession = async () => {
+    // setLoading(true);
+    const checkoutSession = await fetchPostJSON("/api/checkout_sessions", item);
+    //Internal server error
+    if (checkoutSession.statusCode === 500) {
+      console.error(checkoutSession.message);
+      return;
+    }
+    // Redirect to checkout
+    const stripe = await getStripe();
+    const { error } = await stripe.redirectToCheckout({
+      // Make the id field from the Checkout Session creation API response
+      // available to this file, so you can provide it as parameter here
+      // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
+      sessionId: checkoutSession.id,
+    });
+    // If `redirectToCheckout` fails due to a browser or network
+    // error, display the localized error message to your customer
+    // using `error.message`.
+    console.warn(error.message);
+
+    // setLoading(false);
+  };
 
   return (
     <>
@@ -141,7 +169,10 @@ function Startup({ datas }) {
               <h1 className="text-gray-900 text-lg font-medium font-poppins mb-1">
                 Interested in the product?
               </h1>
-              <button className="border-2 px-2 rounded-md text-xl font-inter font-bold border-[#7268E2] text-[#7268E2]">
+              <button
+                className="border-2 px-2 rounded-md text-xl font-inter font-bold border-[#7268E2] text-[#7268E2]"
+                onClick={createCheckoutSession}
+              >
                 Schedule Meeting with the founder
               </button>
             </div>
