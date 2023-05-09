@@ -69,6 +69,7 @@ function createlisting() {
       aboutProduct: aboutProduct,
       createdAt: serverTimestamp(),
       userEmail: session.user.email,
+      upvote: [session.user.email],
     })
       .then((docRef) => {
         // console.log("Document has been added successfully");

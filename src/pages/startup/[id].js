@@ -2,11 +2,11 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Rightbar from "@/components/Rightbar";
 import Image from "next/image";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { getDoc, getFirestore, doc } from "firebase/firestore";
+import { getDoc, getFirestore, doc, updateDoc } from "firebase/firestore";
 import { app } from "../../../firebase";
 import { useRouter } from "next/router";
+import { IoTriangle } from "react-icons/io5";
 
 async function fetchData(id, db) {
   // const db = getFirestore(app);
@@ -14,27 +14,61 @@ async function fetchData(id, db) {
   // setTimeout(function () {}, 2000);
   const docSnap = await getDoc(docRef);
   const data = docSnap.exists() ? docSnap.data() : null;
-  // console.log(data);
   return data;
 }
 
 function Startup({ datas }) {
   const db = getFirestore(app);
-  // console.log(datas);
   const [data, setData] = useState({});
   const router = useRouter();
   const ids = router.query.id;
-  console.log(ids);
+  // console.log(ids);
   useEffect(() => {
     async function getData() {
       const fetchedData = await fetchData(ids, db);
-      // console.log(data);
       if (fetchedData) {
         setData(fetchedData);
       }
     }
     getData();
   }, [ids]);
+  // const [upvote, setUpvote] = useState(data.upvote);
+  // console.log(data.upvote);
+  // const docRef = doc(db, "startups", ids);
+  // function handleIncrement(e) {
+  //   // console.log(e.target.value);
+  //   if (!data.upvote.includes(session.user.email)) {
+  //     const newData = [...data.upvote, session.user.email];
+  //     setUpvote(newData);
+  //     // console.log(session.user.email);
+  //   }
+  // }
+  // const updatedData = {
+  //   upvote: upvote,
+  // };
+  // updateDoc(docRef, updatedData)
+  //   .then((docRef) => {
+  //     console.log(
+  //       "A New Document Field has been added to an existing document"
+  //     );
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+
+  // const updatedData = {
+  //   upvote: upvote,
+  // };
+  // updateDoc(docRef, updatedData)
+  //   .then((docRef) => {
+  //     console.log(
+  //       "A New Document Field has been added to an existing document"
+  //     );
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+
   return (
     <>
       <Header />
@@ -59,8 +93,15 @@ function Startup({ datas }) {
                 VISIT
               </button>
             </a>
-            <button className=" bg-[#7A5AF8] text-white w-48 h-9 hover:bg-purple-700 hover:text-white font-bold text-lg sm:w-auto px-6 rounded-md">
-              UPVOTE
+            <button
+              className=" bg-[#7A5AF8] text-white w-48 h-9 hover:bg-purple-700 hover:text-white font-semibold text-base sm:w-auto px-6 rounded-md"
+              onClick={(e) => handleIncrement(e)}
+            >
+              <div className="flex flex-row items-center space-x-2">
+                <IoTriangle size={18} color="#ffffff" />{" "}
+                <div className="font-inter">UPVOTE</div>
+                <div>{data.upvote ? data.upvote.length : 0}</div>
+              </div>
             </button>
           </div>
         </div>
@@ -180,22 +221,3 @@ function Startup({ datas }) {
   );
 }
 export default Startup;
-
-//Backend Code
-
-// export const getServerSideProps = async (context) => {
-//   const db = getFirestore(app);
-//   const docRef = doc(db, "startups", context.query.id);
-//   const docSnap = await getDoc(docRef);
-//   // const data = docSnap.exists() ? docSnap.data() : null;
-//   // console.log(data);
-//   return {
-//     props: {
-//       docSnap: docSnap.exists()
-//         ? JSON.parse(
-//             safeJsonStringify({ id: docSnap.id, ...docSnap.data() }) // needed for dates
-//           )
-//         : "",
-//     },
-//   };
-// };
