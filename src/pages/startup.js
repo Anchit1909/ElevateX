@@ -111,6 +111,12 @@ function Startup() {
                 learning process!
               </p>
             </div>
+            <div>
+              <h3 className="text-black text-base font-poppins font-medium mt-10">
+                Want to know more about the startup. Gain access to startup
+                financials by getting a monthly subscription to our services.
+              </h3>
+            </div>
           </div>
           <div className="mr-2">
             <Rightbar />

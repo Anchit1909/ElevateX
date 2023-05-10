@@ -7,19 +7,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const item = req.body.item;
-    console.log(item);
-
-    //This is the shape in which stripe expects the data to be
-    // const transformedItems = {
-    //   price_data: {
-    //     currency: "inr",
-    //     product_data: {
-    //       name: "anchit",
-    //     },
-    //     unit_amount: 100,
-    //   },
-    //   quantity: 1,
-    // };
 
     try {
       // Create Checkout Sessions from body params
@@ -31,13 +18,13 @@ export default async function handler(req, res) {
         line_items: [
           {
             // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-            price: "price_1N5XpzSFhWqgkmNLt9ozxa9I",
+            price: "price_1N648TSFhWqgkmNLOP9zSF0I",
             quantity: 1,
           },
         ],
         payment_intent_data: {},
-        mode: "payment",
-        success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+        mode: "subscription",
+        success_url: `${req.headers.origin}/subscription_success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${req.headers.origin}/products`,
         // metadata: {
         //   images: JSON.stringify(items.map((item) => item.image[0].asset.url)),
