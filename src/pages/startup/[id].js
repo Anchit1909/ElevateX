@@ -10,6 +10,7 @@ import { IoTriangle } from "react-icons/io5";
 import getStripe from "@/utils/get-stripejs";
 import { fetchPostJSON } from "@/utils/api-helpers";
 import Stripe from "stripe";
+import Link from "next/link";
 
 async function fetchData(id, db) {
   // const db = getFirestore(app);
@@ -217,12 +218,11 @@ function Startup({ datas }) {
                 Want to know more about the startup. Gain access to startup
                 financials by getting a monthly subscription to our services.
               </h3>
-              <button
-                className="border-2 px-2 rounded-md text-xl font-inter font-bold border-[#7268E2] text-[#7268E2]"
-                onClick={createSubscriptionSession}
-              >
-                Subscribe
-              </button>
+              <Link href="/pricing">
+                <button className="border-2 px-2 rounded-md text-xl font-inter font-bold border-[#7268E2] text-[#7268E2]">
+                  Subscribe
+                </button>
+              </Link>
             </div>
           </div>
           <div className="mr-2">
