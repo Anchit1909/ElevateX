@@ -31,6 +31,18 @@ function createlisting() {
   const [description, setDescription] = useState("");
   const [aboutProduct, setAboutProduct] = useState("");
   const [imageDownloadURL, setImageDownloadURL] = useState("");
+  const [yearFounded, setYearFounded] = useState(0);
+  const [teamSize, setTeamSize] = useState(0);
+  const [country, setCountry] = useState("");
+  const [customers, setCustomers] = useState(0);
+  const [revenueTTM, setRevenueTTM] = useState(0);
+  const [profitTTM, setProfitTTM] = useState(0);
+  const [monthRevenue, setMonthRevenue] = useState(0);
+  const [monthProfit, setMonthProfit] = useState(0);
+  const [annualRevenue, setAnnualRevenue] = useState(0);
+  const [annualGrowth, setAnnualGrowth] = useState(0);
+  const [businessModel, setBusinessModel] = useState("");
+
   // console.log(session.user.email);
   const db = getFirestore(app);
 
@@ -70,6 +82,17 @@ function createlisting() {
       createdAt: serverTimestamp(),
       userEmail: session.user.email,
       upvote: [session.user.email],
+      yearFounded: yearFounded,
+      teamSize: teamSize,
+      country: country,
+      customers: customers,
+      revenueTTM: revenueTTM,
+      profitTTM: profitTTM,
+      monthRevenue: monthRevenue,
+      monthProfit: monthProfit,
+      annualRevenue: annualRevenue,
+      annualGrowth: annualGrowth,
+      businessModel: businessModel,
     })
       .then((docRef) => {
         // console.log("Document has been added successfully");
@@ -115,7 +138,7 @@ function createlisting() {
                   name="tagline"
                   id="tagline"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                  placeholder="tagline"
+                  placeholder="Tagline"
                   required={true}
                   onChange={(e) => setTagline(e.target.value)}
                 />
@@ -129,7 +152,7 @@ function createlisting() {
                   name="link"
                   id="link"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                  placeholder="link"
+                  placeholder="Website Link"
                   required={true}
                   onChange={(e) => setLink(e.target.value)}
                 />
@@ -237,7 +260,167 @@ function createlisting() {
                 ></textarea>
               </div>
             </div>
-
+            <h2 className="font-poppins font-semibold mt-2 text-lg">
+              Company Details for interested Investors
+            </h2>
+            <p className="mb-4">
+              <span className="font-poppins font-bold font-sm">NOTE:</span> This
+              will only be visible to investors and not your users
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Year Founded
+                </label>
+                <input
+                  type="number"
+                  name="yearfounded"
+                  id="yearfounded"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Year Founded"
+                  required={true}
+                  onChange={(e) => setYearFounded(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Startup Team Size
+                </label>
+                <input
+                  type="number"
+                  name="teamsize"
+                  id="teamsize"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Team size"
+                  required={true}
+                  onChange={(e) => setTeamSize(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Country of Origin
+                </label>
+                <input
+                  type="text"
+                  name="country"
+                  id="country"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Country of origin"
+                  required={true}
+                  onChange={(e) => setCountry(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Customers
+                </label>
+                <input
+                  type="number"
+                  name="customers"
+                  id="customers"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Approx. no. of customers"
+                  required={true}
+                  onChange={(e) => setCustomers(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Revenue in TTM
+                </label>
+                <input
+                  type="number"
+                  name="revenuettm"
+                  id="revenuettm"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="TTM Revenue"
+                  required={true}
+                  onChange={(e) => setRevenueTTM(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Profit in TTM
+                </label>
+                <input
+                  type="number"
+                  name="profitttm"
+                  id="profitttm"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="TTM Profit"
+                  required={true}
+                  onChange={(e) => setProfitTTM(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Revenue Last Month
+                </label>
+                <input
+                  type="number"
+                  name="reventuemonth"
+                  id="profitmonth"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Last month revenue"
+                  required={true}
+                  onChange={(e) => setMonthRevenue(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Profit Last Month
+                </label>
+                <input
+                  type="number"
+                  name="profitmonth"
+                  id="profitmonth"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Last month Profit"
+                  required={true}
+                  onChange={(e) => setMonthProfit(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Annual Recurring Revenue
+                </label>
+                <input
+                  type="number"
+                  name="annualrecur"
+                  id="annualrecur"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Recurring revenue"
+                  required={true}
+                  onChange={(e) => setAnnualRevenue(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Annual Growth Rate
+                </label>
+                <input
+                  type="number"
+                  name="annualgrowth"
+                  id="annualgrowth"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Growth Rate"
+                  required={true}
+                  onChange={(e) => setAnnualGrowth(e.target.value)}
+                />
+              </div>
+              <div className="sm:col-span-2">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Business Model and Pricing
+                </label>
+                <textarea
+                  id="businessmodel"
+                  rows={10}
+                  className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+                  placeholder="Write a short description of your business model and your pricing plans"
+                  onChange={(e) => setBusinessModel(e.target.value)}
+                ></textarea>
+              </div>
+            </div>
             <button
               type="submit"
               className="my-auto bg-[#7A5AF8] text-white font-semibold text-lg  py-1 px-4 rounded-xl mt-4"
