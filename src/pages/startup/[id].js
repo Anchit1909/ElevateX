@@ -272,7 +272,7 @@ function Startup({ datas }) {
               Company Financials
             </h1>
             <div className="mt-10 grid grid-cols-3 space-x-8 gap-y-12">
-              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30">
+              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
                 <div className="flex items-center justify-center flex-col">
                   <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
                     ₹{data.revenueTTM}
@@ -282,7 +282,7 @@ function Startup({ datas }) {
                   </p>
                 </div>
               </div>
-              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30">
+              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
                 <div className="flex items-center justify-center flex-col">
                   <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
                     ₹{data.profitTTM}
@@ -292,7 +292,7 @@ function Startup({ datas }) {
                   </p>
                 </div>
               </div>
-              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30">
+              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
                 <div className="flex items-center justify-center flex-col">
                   <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
                     ₹{data.annualRevenue}
@@ -304,7 +304,7 @@ function Startup({ datas }) {
               </div>
             </div>
             <div className="mt-10 grid grid-cols-3 space-x-8 gap-y-12">
-              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30">
+              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
                 <div className="flex items-center justify-center flex-col">
                   <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
                     ₹{data.monthRevenue}
@@ -314,7 +314,7 @@ function Startup({ datas }) {
                   </p>
                 </div>
               </div>
-              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30">
+              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
                 <div className="flex items-center justify-center flex-col">
                   <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
                     ₹{data.monthProfit}
@@ -324,7 +324,7 @@ function Startup({ datas }) {
                   </p>
                 </div>
               </div>
-              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30">
+              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
                 <div className="flex items-center justify-center flex-col">
                   <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
                     {data.annualGrowth}%
@@ -341,7 +341,7 @@ function Startup({ datas }) {
               About the company
             </h1>
             <div className="mt-10 grid grid-cols-3 space-x-8 gap-y-12">
-              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30">
+              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
                 <div className="flex items-center justify-center flex-col">
                   <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
                     {data.yearFounded}
@@ -351,7 +351,7 @@ function Startup({ datas }) {
                   </p>
                 </div>
               </div>
-              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30">
+              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
                 <div className="flex items-center justify-center flex-col">
                   <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
                     {data.teamSize}
@@ -361,7 +361,7 @@ function Startup({ datas }) {
                   </p>
                 </div>
               </div>
-              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30">
+              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
                 <div className="flex items-center justify-center flex-col">
                   <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
                     {data.customers}
