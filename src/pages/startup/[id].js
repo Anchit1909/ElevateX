@@ -139,7 +139,7 @@ function Startup({ datas }) {
               {data.description}
             </h1>
             <div className="flex my-4 items-center">
-              <h1 className="text-[#4B587C] font-inter font-medium">
+              <h1 className="text-[#4B587C] font-poppins font-medium">
                 Launched in
               </h1>
               <button className="border-2 border-green-600 text-green-600 mx-2 px-2 rounded-md font-bold font-inter flex items-center justify-center">
@@ -165,8 +165,8 @@ function Startup({ datas }) {
             <div className="flex mt-10 space-x-2 justify-center items-center">
               <Image src="/startup_founders.png" width={705} height={42} />
             </div>
-            <div className="my-14">
-              <h1 className="text-gray-900 text-lg font-medium font-poppins mb-1">
+            <div className="mt-12">
+              <h1 className="text-black text-xl font-poppins font-medium mb-1">
                 Interested in the product?
               </h1>
               <button
@@ -177,24 +177,22 @@ function Startup({ datas }) {
               </button>
             </div>
             <div className="mt-10">
-              <h1 className="text-gray-900 text-2xl font-medium font-poppins">
+              <h1 className="text-black text-xl font-poppins font-medium">
                 Support is great. Feedback is even better.
               </h1>
-              <h1 className="text-gray-600 text-base font-inter max-w-5xl leading-6 tracking-wide">
-                <em>
-                  We invite you to share your valuable feedback and suggestions
-                  with us, whether it's regarding our serivces, user experience,
-                  pricing, or any other aspect. Your input will play a crucial
-                  role in shaping the future of WorkOs, and we are genuinely
-                  excited to learn from your expertise.
-                </em>
+              <h1 className="text-gray-600 text-lg font-inter max-w-5xl leading-6 tracking-wide mt-1">
+                We invite you to share your valuable feedback and suggestions
+                with us, whether it's regarding our serivces, user experience,
+                pricing, or any other aspect. Your input will play a crucial
+                role in shaping the future of WorkOs, and we are genuinely
+                excited to learn from your expertise.
               </h1>
             </div>
             <div>
               <h1 className="text-black text-xl font-poppins font-medium mt-10">
                 About the product
               </h1>
-              <p className="font-inter mt-2 leading-8 text-[#292524]">
+              <p className="font-inter mt-2 leading-8 text-[#292524] text-lg">
                 {/* Hi ElevateX 👋
                 <br /> "Article Summary powered by ChatGPT" maker here! 🚀
                 <br />
@@ -214,10 +212,13 @@ function Startup({ datas }) {
               </p>
             </div>
             <div>
-              <h3 className="text-black text-base font-poppins mt-10">
-                Want to know more about the startup. Gain access to startup
-                financials by getting a monthly subscription to our services.
+              <h3 className="text-black text-xl font-poppins font-medium mt-10">
+                Want to know more about the startup?
               </h3>
+              <h4 className="mb-2 font-inter text-lg">
+                Gain access to startup financials by getting a monthly
+                subscription to our services.
+              </h4>
               <Link href="/pricing">
                 <button className="border-2 px-2 rounded-md text-xl font-inter font-bold border-[#7268E2] text-[#7268E2]">
                   Subscribe
@@ -254,6 +255,122 @@ function Startup({ datas }) {
               <p className="text-sm text-gray-900 font-poppins">
                 CEO of Boys Heart
               </p>
+            </div>
+          </div>
+        </div>
+        <div className="max-w-screen-xl mx-auto">
+          <div className="mt-8">
+            <h1 className="text-black text-xl font-poppins font-medium">
+              Business Model and Pricing
+            </h1>
+            <p className="font-inter mt-2 leading-8 text-[#292524] text-lg">
+              {data.businessModel}
+            </p>
+          </div>
+          <div>
+            <h1 className="text-black text-xl font-poppins font-medium mt-10">
+              Company Financials
+            </h1>
+            <div className="mt-10 grid grid-cols-3 space-x-8 gap-y-12">
+              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30">
+                <div className="flex items-center justify-center flex-col">
+                  <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                    ₹{data.revenueTTM}
+                  </h5>
+                  <p className="text-[#556987] font-poppins font-medium">
+                    TTM Gross Revenue
+                  </p>
+                </div>
+              </div>
+              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30">
+                <div className="flex items-center justify-center flex-col">
+                  <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                    ₹{data.profitTTM}
+                  </h5>
+                  <p className="text-[#556987] font-poppins font-medium">
+                    TTM Net Profit
+                  </p>
+                </div>
+              </div>
+              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30">
+                <div className="flex items-center justify-center flex-col">
+                  <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                    ₹{data.annualRevenue}
+                  </h5>
+                  <p className="text-[#556987] font-poppins font-medium">
+                    Annual Recurring Revenue
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-10 grid grid-cols-3 space-x-8 gap-y-12">
+              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30">
+                <div className="flex items-center justify-center flex-col">
+                  <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                    ₹{data.monthRevenue}
+                  </h5>
+                  <p className="text-[#556987] font-poppins font-medium">
+                    Last Month Revenue
+                  </p>
+                </div>
+              </div>
+              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30">
+                <div className="flex items-center justify-center flex-col">
+                  <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                    ₹{data.monthProfit}
+                  </h5>
+                  <p className="text-[#556987] font-poppins font-medium">
+                    Last Month Profit
+                  </p>
+                </div>
+              </div>
+              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30">
+                <div className="flex items-center justify-center flex-col">
+                  <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                    {data.annualGrowth}%
+                  </h5>
+                  <p className="text-[#556987] font-poppins font-medium">
+                    Annual Growth Rate
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h1 className="text-black text-xl font-poppins font-medium mt-10">
+              About the company
+            </h1>
+            <div className="mt-10 grid grid-cols-3 space-x-8 gap-y-12">
+              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30">
+                <div className="flex items-center justify-center flex-col">
+                  <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                    {data.yearFounded}
+                  </h5>
+                  <p className="text-[#556987] font-poppins font-medium">
+                    Year Founded
+                  </p>
+                </div>
+              </div>
+              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30">
+                <div className="flex items-center justify-center flex-col">
+                  <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                    {data.teamSize}
+                  </h5>
+                  <p className="text-[#556987] font-poppins font-medium">
+                    Startup Team Size
+                  </p>
+                </div>
+              </div>
+              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30">
+                <div className="flex items-center justify-center flex-col">
+                  <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                    {data.customers}
+                  </h5>
+                  <p className="text-[#556987] font-poppins font-medium">
+                    No. of Customers
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
