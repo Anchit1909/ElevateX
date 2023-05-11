@@ -3,7 +3,16 @@ import Header from "@/components/Header";
 import Rightbar from "@/components/Rightbar";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { getDoc, getFirestore, doc, updateDoc } from "firebase/firestore";
+import {
+  getDoc,
+  getFirestore,
+  doc,
+  updateDoc,
+  query,
+  getDocs,
+  collection,
+  where,
+} from "firebase/firestore";
 import { app } from "../../../firebase";
 import { useRouter } from "next/router";
 import { IoTriangle } from "react-icons/io5";
@@ -11,6 +20,7 @@ import getStripe from "@/utils/get-stripejs";
 import { fetchPostJSON } from "@/utils/api-helpers";
 import Stripe from "stripe";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 async function fetchData(id, db) {
   // const db = getFirestore(app);
@@ -26,7 +36,22 @@ function Startup({ datas }) {
   const [data, setData] = useState({});
   const router = useRouter();
   const ids = router.query.id;
+  const { data: session } = useSession();
   // console.log(ids);
+  const [subscriptionStatus, setSubscriptionStatus] = useState(false);
+
+  async function getSubscriptionStatus() {
+    const q = query(
+      collection(db, "users"),
+      where("email", "==", session.user.email)
+    );
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      // console.log(doc.id, " => ", doc.data());
+      if (doc.data().subscribed == true) setSubscriptionStatus(true);
+    });
+  }
   useEffect(() => {
     async function getData() {
       const fetchedData = await fetchData(ids, db);
@@ -35,6 +60,7 @@ function Startup({ datas }) {
       }
     }
     getData();
+    getSubscriptionStatus();
   }, [ids]);
   // const [upvote, setUpvote] = useState(data.upvote);
   // console.log(data.upvote);
@@ -188,7 +214,7 @@ function Startup({ datas }) {
                 excited to learn from your expertise.
               </h1>
             </div>
-            <div>
+            <div className="mb-3">
               <h1 className="text-black text-xl font-poppins font-medium mt-10">
                 About the product
               </h1>
@@ -211,20 +237,22 @@ function Startup({ datas }) {
                 {data.aboutProduct}
               </p>
             </div>
-            <div>
-              <h3 className="text-black text-xl font-poppins font-medium mt-10">
-                Want to know more about the startup?
-              </h3>
-              <h4 className="mb-2 font-inter text-lg">
-                Gain access to startup financials by getting a monthly
-                subscription to our services.
-              </h4>
-              <Link href="/pricing">
-                <button className="border-2 px-2 rounded-md text-xl font-inter font-bold border-[#7268E2] text-[#7268E2]">
-                  Subscribe
-                </button>
-              </Link>
-            </div>
+            {!subscriptionStatus && (
+              <div>
+                <h3 className="text-black text-xl font-poppins font-medium mt-10">
+                  Want to know more about the startup?
+                </h3>
+                <h4 className="mb-2 font-inter text-lg">
+                  Gain access to startup financials by getting a monthly
+                  subscription to our services.
+                </h4>
+                <Link href="/pricing">
+                  <button className="border-2 px-2 rounded-md text-xl font-inter font-bold border-[#7268E2] text-[#7268E2]">
+                    Subscribe
+                  </button>
+                </Link>
+              </div>
+            )}
           </div>
           <div className="mr-2">
             <Rightbar />
@@ -258,122 +286,124 @@ function Startup({ datas }) {
             </div>
           </div>
         </div>
-        <div className="max-w-screen-xl mx-auto">
-          <div className="mt-8">
-            <h1 className="text-black text-xl font-poppins font-medium">
-              Business Model and Pricing
-            </h1>
-            <p className="font-inter mt-2 leading-8 text-[#292524] text-lg">
-              {data.businessModel}
-            </p>
-          </div>
-          <div>
-            <h1 className="text-black text-xl font-poppins font-medium mt-10">
-              Company Financials
-            </h1>
-            <div className="mt-10 grid grid-cols-3 space-x-8 gap-y-12">
-              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
-                <div className="flex items-center justify-center flex-col">
-                  <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
-                    ₹{data.revenueTTM}
-                  </h5>
-                  <p className="text-[#556987] font-poppins font-medium">
-                    TTM Gross Revenue
-                  </p>
+        {subscriptionStatus && (
+          <div className="max-w-screen-xl mx-auto">
+            <div className="mt-8">
+              <h1 className="text-black text-xl font-poppins font-medium">
+                Business Model and Pricing
+              </h1>
+              <p className="font-inter mt-2 leading-8 text-[#292524] text-lg">
+                {data.businessModel}
+              </p>
+            </div>
+            <div>
+              <h1 className="text-black text-xl font-poppins font-medium mt-10">
+                Company Financials
+              </h1>
+              <div className="mt-10 grid grid-cols-3 space-x-8 gap-y-12">
+                <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
+                  <div className="flex items-center justify-center flex-col">
+                    <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                      ₹{data.revenueTTM}
+                    </h5>
+                    <p className="text-[#556987] font-poppins font-medium">
+                      TTM Gross Revenue
+                    </p>
+                  </div>
+                </div>
+                <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
+                  <div className="flex items-center justify-center flex-col">
+                    <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                      ₹{data.profitTTM}
+                    </h5>
+                    <p className="text-[#556987] font-poppins font-medium">
+                      TTM Net Profit
+                    </p>
+                  </div>
+                </div>
+                <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
+                  <div className="flex items-center justify-center flex-col">
+                    <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                      ₹{data.annualRevenue}
+                    </h5>
+                    <p className="text-[#556987] font-poppins font-medium">
+                      Annual Recurring Revenue
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
-                <div className="flex items-center justify-center flex-col">
-                  <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
-                    ₹{data.profitTTM}
-                  </h5>
-                  <p className="text-[#556987] font-poppins font-medium">
-                    TTM Net Profit
-                  </p>
+              <div className="mt-10 grid grid-cols-3 space-x-8 gap-y-12">
+                <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
+                  <div className="flex items-center justify-center flex-col">
+                    <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                      ₹{data.monthRevenue}
+                    </h5>
+                    <p className="text-[#556987] font-poppins font-medium">
+                      Last Month Revenue
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
-                <div className="flex items-center justify-center flex-col">
-                  <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
-                    ₹{data.annualRevenue}
-                  </h5>
-                  <p className="text-[#556987] font-poppins font-medium">
-                    Annual Recurring Revenue
-                  </p>
+                <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
+                  <div className="flex items-center justify-center flex-col">
+                    <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                      ₹{data.monthProfit}
+                    </h5>
+                    <p className="text-[#556987] font-poppins font-medium">
+                      Last Month Profit
+                    </p>
+                  </div>
+                </div>
+                <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
+                  <div className="flex items-center justify-center flex-col">
+                    <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                      {data.annualGrowth}%
+                    </h5>
+                    <p className="text-[#556987] font-poppins font-medium">
+                      Annual Growth Rate
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="mt-10 grid grid-cols-3 space-x-8 gap-y-12">
-              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
-                <div className="flex items-center justify-center flex-col">
-                  <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
-                    ₹{data.monthRevenue}
-                  </h5>
-                  <p className="text-[#556987] font-poppins font-medium">
-                    Last Month Revenue
-                  </p>
+            <div>
+              <h1 className="text-black text-xl font-poppins font-medium mt-10">
+                About the company
+              </h1>
+              <div className="mt-10 grid grid-cols-3 space-x-8 gap-y-12">
+                <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
+                  <div className="flex items-center justify-center flex-col">
+                    <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                      {data.yearFounded}
+                    </h5>
+                    <p className="text-[#556987] font-poppins font-medium">
+                      Year Founded
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
-                <div className="flex items-center justify-center flex-col">
-                  <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
-                    ₹{data.monthProfit}
-                  </h5>
-                  <p className="text-[#556987] font-poppins font-medium">
-                    Last Month Profit
-                  </p>
+                <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
+                  <div className="flex items-center justify-center flex-col">
+                    <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                      {data.teamSize}
+                    </h5>
+                    <p className="text-[#556987] font-poppins font-medium">
+                      Startup Team Size
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
-                <div className="flex items-center justify-center flex-col">
-                  <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
-                    {data.annualGrowth}%
-                  </h5>
-                  <p className="text-[#556987] font-poppins font-medium">
-                    Annual Growth Rate
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <h1 className="text-black text-xl font-poppins font-medium mt-10">
-              About the company
-            </h1>
-            <div className="mt-10 grid grid-cols-3 space-x-8 gap-y-12">
-              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
-                <div className="flex items-center justify-center flex-col">
-                  <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
-                    {data.yearFounded}
-                  </h5>
-                  <p className="text-[#556987] font-poppins font-medium">
-                    Year Founded
-                  </p>
-                </div>
-              </div>
-              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
-                <div className="flex items-center justify-center flex-col">
-                  <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
-                    {data.teamSize}
-                  </h5>
-                  <p className="text-[#556987] font-poppins font-medium">
-                    Startup Team Size
-                  </p>
-                </div>
-              </div>
-              <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
-                <div className="flex items-center justify-center flex-col">
-                  <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
-                    {data.customers}
-                  </h5>
-                  <p className="text-[#556987] font-poppins font-medium">
-                    No. of Customers
-                  </p>
+                <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
+                  <div className="flex items-center justify-center flex-col">
+                    <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                      {data.customers}
+                    </h5>
+                    <p className="text-[#556987] font-poppins font-medium">
+                      No. of Customers
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
       <Footer />
     </>

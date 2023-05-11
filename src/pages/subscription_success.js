@@ -20,7 +20,7 @@ function subscription_success({ user }) {
   const db = getFirestore(app);
   async function updateData() {
     const updatedData = {
-      subscribed: false,
+      subscribed: true,
     };
     const docRef = doc(db, "users", requiredDocId);
     await updateDoc(docRef, updatedData);
