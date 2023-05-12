@@ -33,7 +33,7 @@ function Hero() {
         <div className="relative flex items-center justify-center w-1/2">
           {/* <img src="/heroimage5.png" className="h-[440px] " alt="" /> */}
           <Image
-            src="/g51.png"
+            src="/hero_image2.png"
             height={600}
             width={600}
             alt=""
