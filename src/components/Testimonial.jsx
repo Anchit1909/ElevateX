@@ -8,10 +8,10 @@ function Testimonial() {
         <h1 className="px-2 md:px-0 text-center font-poppins font-semibold text-gray-900 text-3xl">
           Growth stories from our community
         </h1>
-        <div className="absolute right-36 -top-28 w-[412px] h-[412px] bg-[#B3AAFC]/20 rounded-full -z-10  blur-3xl" />
-        <div className="absolute -right-8 -top-28 w-[412px] h-[412px] bg-[#E841E1]/20 rounded-full -z-10  blur-3xl" />
-        <div className="absolute -right-28 -top-28  w-[412px] h-[412px] bg-[#F1BB31]/20 rounded-full -z-10 blur-3xl" />
-        <div className="absolute -right-48 -top-32 w-[412px] h-[412px] bg-[#DFF363]/20 rounded-full -z-10 blur-3xl" />
+        <div className="absolute right-36 -top-28 w-[412px] h-[412px] bg-[#B3AAFC]/[16%] rounded-full -z-10  blur-3xl" />
+        <div className="absolute -right-8 -top-28 w-[412px] h-[412px] bg-[#E841E1]/[16%] rounded-full -z-10  blur-3xl" />
+        <div className="absolute -right-28 -top-28  w-[412px] h-[412px] bg-[#F1BB31]/[16%] rounded-full -z-10 blur-3xl" />
+        <div className="absolute -right-48 -top-32 w-[412px] h-[412px] bg-[#DFF363]/[16%] rounded-full -z-10 blur-3xl" />
         <p className="px-2 md:px-0 text-center text-[#6D798B] font-inter">
           Thousands of founders are using ElevateX to promote and sell their
           startups

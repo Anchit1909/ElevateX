@@ -10,10 +10,10 @@ function Hero() {
           <h1 className="px-3 lg-px-0 font-semibold text-6xl text-gray-900 font-poppins max-w-lg md:max-w-xl relative z-10">
             Post Your Startup Idea and Get Discovered
           </h1>
-          <div className="absolute -left-40 top-4 w-96 h-96 bg-[#B3AAFC]/30 rounded-full blur-3xl" />
-          <div className="absolute -left-12 -top-36 w-96 h-96 bg-[#E841E1]/30 rounded-full blur-3xl" />
-          <div className="absolute left-32 -top-24 w-96 h-96 bg-[#DFF363]/30 rounded-full blur-3xl" />
-          <div className="absolute left-28 -top-40 w-96 h-96 bg-[#F1BB31]/30 rounded-full blur-3xl" />
+          <div className="absolute -left-40 top-4 w-96 h-96 bg-[#B3AAFC]/[25%] rounded-full blur-3xl" />
+          <div className="absolute -left-12 -top-36 w-96 h-96 bg-[#E841E1]/[25%] rounded-full blur-3xl" />
+          <div className="absolute left-32 -top-24 w-96 h-96 bg-[#DFF363]/[25%] rounded-full blur-3xl" />
+          <div className="absolute left-28 -top-40 w-96 h-96 bg-[#F1BB31]/[25%] rounded-full blur-3xl" />
           <p className="px-3 lg-px-0 text-gray-600 mt-4 text-lg max-w-md font-inter z-10">
             Get the platform to show your startup or invest your money in some
             useful startups.

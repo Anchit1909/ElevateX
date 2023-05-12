@@ -39,8 +39,8 @@ function pricing() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section>
-        <div className="px-16 py-20 h-full w-screen xl:h-screen xl:w-full bg-white bg-cover bg-center bg-no-repeat">
-          <div className="w-full h-full bg-front-image bg-cover bg-bottom bg-no-repeat shadow-2xl">
+        <div className="px-16 py-20 h-full w-screen xl:h-screen xl:w-full bg-[#FEFDFB]">
+          <div className="w-full h-full shadow-2xl">
             <h1 className="px-16 py-10 text-4xl text-gray-900 font-poppins font-bold">
               Simple,{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent">
