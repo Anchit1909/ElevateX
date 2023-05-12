@@ -8,6 +8,7 @@ import { useSession } from "next-auth/react";
 function ProductRow({ key, data, id }) {
   const { data: session } = useSession();
   const [upvote, setUpvote] = useState(data.upvote);
+  const [upvotesNum, setUpvotesNum] = useState(data.upvotes);
   const db = getFirestore(app);
   const docRef = doc(db, "startups", id);
 
@@ -16,11 +17,15 @@ function ProductRow({ key, data, id }) {
     if (!data.upvote.includes(session.user.email)) {
       const newData = [...data.upvote, session.user.email];
       setUpvote(newData);
+      setUpvotesNum(newData.length);
+
       // console.log(session.user.email);
     }
   }
+  // console.log(upvotesNum);
   const updatedData = {
     upvote: upvote,
+    upvotes: upvotesNum,
   };
 
   updateDoc(docRef, updatedData)

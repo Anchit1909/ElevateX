@@ -82,6 +82,7 @@ function createlisting() {
       createdAt: serverTimestamp(),
       userEmail: session.user.email,
       upvote: [session.user.email],
+      upvotes: 1,
       yearFounded: yearFounded,
       teamSize: teamSize,
       country: country,
@@ -108,7 +109,7 @@ function createlisting() {
   return (
     <>
       <Header />
-      <section className="bg-white">
+      <section className="bg-[#FEFDFB]">
         <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
           <h2 className="mb-4 text-xl font-bold text-gray-900">
             Add a new Startup Listing
