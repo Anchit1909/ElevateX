@@ -25,7 +25,6 @@ import { useSession } from "next-auth/react";
 async function fetchData(id, db) {
   // const db = getFirestore(app);
   const docRef = doc(db, "startups", id);
-  // setTimeout(function () {}, 2000);
   const docSnap = await getDoc(docRef);
   const data = docSnap.exists() ? docSnap.data() : null;
   return data;
