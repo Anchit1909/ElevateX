@@ -44,7 +44,7 @@ function Header() {
               Explore Products
             </p>
           </Link>
-          <Link href="/investors" className="hover:text-violet-500">
+          <Link href="/topinvestor" className="hover:text-violet-500">
             <p className="block mt-4 lg:inline-block lg:mt-0 mr-4">
               Top Investors
             </p>
