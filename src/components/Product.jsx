@@ -20,7 +20,7 @@ function Product() {
   const db = getFirestore(app);
 
   const [value, loading, error] = useCollection(
-    query(collection(db, "startups"), orderBy("createdAt", "asc"))
+    query(collection(db, "startups"), orderBy("upvotes", "desc"))
   );
   return (
     <div className="bg-[#FEFDFB] ">

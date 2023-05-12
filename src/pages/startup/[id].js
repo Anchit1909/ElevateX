@@ -3,15 +3,28 @@ import Header from "@/components/Header";
 import Rightbar from "@/components/Rightbar";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { getDoc, getFirestore, doc, updateDoc } from "firebase/firestore";
+import {
+  getDoc,
+  getFirestore,
+  doc,
+  updateDoc,
+  query,
+  getDocs,
+  collection,
+  where,
+} from "firebase/firestore";
 import { app } from "../../../firebase";
 import { useRouter } from "next/router";
 import { IoTriangle } from "react-icons/io5";
+import getStripe from "@/utils/get-stripejs";
+import { fetchPostJSON } from "@/utils/api-helpers";
+import Stripe from "stripe";
+import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 async function fetchData(id, db) {
   // const db = getFirestore(app);
   const docRef = doc(db, "startups", id);
-  // setTimeout(function () {}, 2000);
   const docSnap = await getDoc(docRef);
   const data = docSnap.exists() ? docSnap.data() : null;
   return data;
@@ -22,7 +35,22 @@ function Startup({ datas }) {
   const [data, setData] = useState({});
   const router = useRouter();
   const ids = router.query.id;
+  const { data: session } = useSession();
   // console.log(ids);
+  const [subscriptionStatus, setSubscriptionStatus] = useState(false);
+
+  async function getSubscriptionStatus() {
+    const q = query(
+      collection(db, "users"),
+      where("email", "==", session.user.email)
+    );
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      // console.log(doc.id, " => ", doc.data());
+      if (doc.data().subscribed == true) setSubscriptionStatus(true);
+    });
+  }
   useEffect(() => {
     async function getData() {
       const fetchedData = await fetchData(ids, db);
@@ -31,6 +59,7 @@ function Startup({ datas }) {
       }
     }
     getData();
+    getSubscriptionStatus();
   }, [ids]);
   // const [upvote, setUpvote] = useState(data.upvote);
   // console.log(data.upvote);
@@ -68,7 +97,31 @@ function Startup({ datas }) {
   //   .catch((error) => {
   //     console.log(error);
   //   });
+  const item = ["investment call", 4999];
 
+  const createCheckoutSession = async () => {
+    // setLoading(true);
+    const checkoutSession = await fetchPostJSON("/api/checkout_sessions", item);
+    //Internal server error
+    if (checkoutSession.statusCode === 500) {
+      console.error(checkoutSession.message);
+      return;
+    }
+    // Redirect to checkout
+    const stripe = await getStripe();
+    const { error } = await stripe.redirectToCheckout({
+      // Make the id field from the Checkout Session creation API response
+      // available to this file, so you can provide it as parameter here
+      // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
+      sessionId: checkoutSession.id,
+    });
+    // If `redirectToCheckout` fails due to a browser or network
+    // error, display the localized error message to your customer
+    // using `error.message`.
+    console.warn(error.message);
+
+    // setLoading(false);
+  };
   return (
     <>
       <Header />
@@ -111,7 +164,7 @@ function Startup({ datas }) {
               {data.description}
             </h1>
             <div className="flex my-4 items-center">
-              <h1 className="text-[#4B587C] font-inter font-medium">
+              <h1 className="text-[#4B587C] font-poppins font-medium">
                 Launched in
               </h1>
               <button className="border-2 border-green-600 text-green-600 mx-2 px-2 rounded-md font-bold font-inter flex items-center justify-center">
@@ -137,33 +190,34 @@ function Startup({ datas }) {
             <div className="flex mt-10 space-x-2 justify-center items-center">
               <Image src="/startup_founders.png" width={705} height={42} />
             </div>
-            <div className="my-14">
-              <h1 className="text-gray-900 text-lg font-medium font-poppins mb-1">
+            <div className="mt-12">
+              <h1 className="text-black text-xl font-poppins font-medium mb-1">
                 Interested in the product?
               </h1>
-              <button className="border-2 px-2 rounded-md text-xl font-inter font-bold border-[#7268E2] text-[#7268E2]">
+              <button
+                className="border-2 px-2 rounded-md text-xl font-inter font-bold border-[#7268E2] text-[#7268E2]"
+                onClick={createCheckoutSession}
+              >
                 Schedule Meeting with the founder
               </button>
             </div>
             <div className="mt-10">
-              <h1 className="text-gray-900 text-2xl font-medium font-poppins">
+              <h1 className="text-black text-xl font-poppins font-medium">
                 Support is great. Feedback is even better.
               </h1>
-              <h1 className="text-gray-600 text-base font-inter max-w-5xl leading-6 tracking-wide">
-                <em>
-                  We invite you to share your valuable feedback and suggestions
-                  with us, whether it's regarding our serivces, user experience,
-                  pricing, or any other aspect. Your input will play a crucial
-                  role in shaping the future of WorkOs, and we are genuinely
-                  excited to learn from your expertise.
-                </em>
+              <h1 className="text-gray-600 text-lg font-inter max-w-5xl leading-6 tracking-wide mt-1">
+                We invite you to share your valuable feedback and suggestions
+                with us, whether it's regarding our serivces, user experience,
+                pricing, or any other aspect. Your input will play a crucial
+                role in shaping the future of WorkOs, and we are genuinely
+                excited to learn from your expertise.
               </h1>
             </div>
-            <div>
+            <div className="mb-3">
               <h1 className="text-black text-xl font-poppins font-medium mt-10">
                 About the product
               </h1>
-              <p className="font-inter mt-2 leading-8 text-[#292524]">
+              <p className="font-inter mt-2 leading-8 text-[#292524] text-lg">
                 {/* Hi ElevateX 👋
                 <br /> "Article Summary powered by ChatGPT" maker here! 🚀
                 <br />
@@ -182,6 +236,22 @@ function Startup({ datas }) {
                 {data.aboutProduct}
               </p>
             </div>
+            {!subscriptionStatus && (
+              <div>
+                <h3 className="text-black text-xl font-poppins font-medium mt-10">
+                  Want to know more about the startup?
+                </h3>
+                <h4 className="mb-2 font-inter text-lg">
+                  Gain access to startup financials by getting a monthly
+                  subscription to our services.
+                </h4>
+                <Link href="/pricing">
+                  <button className="border-2 px-2 rounded-md text-xl font-inter font-bold border-[#7268E2] text-[#7268E2]">
+                    Subscribe
+                  </button>
+                </Link>
+              </div>
+            )}
           </div>
           <div className="mr-2">
             <Rightbar />
@@ -215,6 +285,124 @@ function Startup({ datas }) {
             </div>
           </div>
         </div>
+        {subscriptionStatus && (
+          <div className="max-w-screen-xl mx-auto">
+            <div className="mt-8">
+              <h1 className="text-black text-xl font-poppins font-medium">
+                Business Model and Pricing
+              </h1>
+              <p className="font-inter mt-2 leading-8 text-[#292524] text-lg">
+                {data.businessModel}
+              </p>
+            </div>
+            <div>
+              <h1 className="text-black text-xl font-poppins font-medium mt-10">
+                Company Financials
+              </h1>
+              <div className="mt-10 grid grid-cols-3 space-x-8 gap-y-12">
+                <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
+                  <div className="flex items-center justify-center flex-col">
+                    <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                      ₹{data.revenueTTM}
+                    </h5>
+                    <p className="text-[#556987] font-poppins font-medium">
+                      TTM Gross Revenue
+                    </p>
+                  </div>
+                </div>
+                <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
+                  <div className="flex items-center justify-center flex-col">
+                    <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                      ₹{data.profitTTM}
+                    </h5>
+                    <p className="text-[#556987] font-poppins font-medium">
+                      TTM Net Profit
+                    </p>
+                  </div>
+                </div>
+                <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
+                  <div className="flex items-center justify-center flex-col">
+                    <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                      ₹{data.annualRevenue}
+                    </h5>
+                    <p className="text-[#556987] font-poppins font-medium">
+                      Annual Recurring Revenue
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-10 grid grid-cols-3 space-x-8 gap-y-12">
+                <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
+                  <div className="flex items-center justify-center flex-col">
+                    <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                      ₹{data.monthRevenue}
+                    </h5>
+                    <p className="text-[#556987] font-poppins font-medium">
+                      Last Month Revenue
+                    </p>
+                  </div>
+                </div>
+                <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
+                  <div className="flex items-center justify-center flex-col">
+                    <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                      ₹{data.monthProfit}
+                    </h5>
+                    <p className="text-[#556987] font-poppins font-medium">
+                      Last Month Profit
+                    </p>
+                  </div>
+                </div>
+                <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
+                  <div className="flex items-center justify-center flex-col">
+                    <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                      {data.annualGrowth}%
+                    </h5>
+                    <p className="text-[#556987] font-poppins font-medium">
+                      Annual Growth Rate
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h1 className="text-black text-xl font-poppins font-medium mt-10">
+                About the company
+              </h1>
+              <div className="mt-10 grid grid-cols-3 space-x-8 gap-y-12">
+                <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
+                  <div className="flex items-center justify-center flex-col">
+                    <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                      {data.yearFounded}
+                    </h5>
+                    <p className="text-[#556987] font-poppins font-medium">
+                      Year Founded
+                    </p>
+                  </div>
+                </div>
+                <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
+                  <div className="flex items-center justify-center flex-col">
+                    <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                      {data.teamSize}
+                    </h5>
+                    <p className="text-[#556987] font-poppins font-medium">
+                      Startup Team Size
+                    </p>
+                  </div>
+                </div>
+                <div className="block max-w-sm p-6 bg-[#F5F5F3] border border-1 border-[#6D798B]/30 shadow">
+                  <div className="flex items-center justify-center flex-col">
+                    <h5 className="text-[#514D4D] text-4xl font-bold font-poppins">
+                      {data.customers}
+                    </h5>
+                    <p className="text-[#556987] font-poppins font-medium">
+                      No. of Customers
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
       <Footer />
     </>
