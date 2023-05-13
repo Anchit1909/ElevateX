@@ -30,34 +30,34 @@ function Product() {
         <div className="absolute -top-36 w-96 h-96 bg-[#F1BB31]/20 rounded-full blur-3xl" />
         <div className="absolute left-32 -top-36 w-96 h-96 bg-[#DFF363]/10 rounded-full blur-3xl" />
         <div className="flex flex-col items-center justify-center mx-auto h-full font-poppins space-y-2 flex-1">
-          <p className="font-medium md:text-6xl text-4xl text-[#1C1F34] z-10">
+          <p className="font-medium md:text-6xl text-2xl text-[#1C1F34] z-10">
             Welcome to Elevate
-            <span className="font-bold md:text-6xl text-4xl">X</span>!👋
+            <span className="font-bold md:text-6xl text-2xl">X</span>!👋
           </p>
-          <div className="max-w-xl text-lg flex flex-wrap text-[#0A171C] text-center z-10">
+          <div className="max-w-xl text-sm md:text-lg flex flex-wrap text-[#0A171C] text-center z-10">
             A cutting edge technology to connect startups and investors and help
             your money to grow to next level.
           </div>
         </div>
 
         <div className="py-4">
-          <div className="md:ml-40 font-medium text-base leading-3 text-[#6D798B] font-inter z-10">
+          <div className="ml-2 md:ml-40 font-medium text-sm md:text-base leading-3 text-[#6D798B] font-inter z-10">
             TRENDING TOPICS:
           </div>
-          <div className="flex md:ml-40 mt-2 md:mr-[200px] flex-wrap font-inter space-x-2 z-10">
-            <button className="w-42 h-8 hover:bg-black hover:text-white text-black border-2 border-solid border-black font-bold text-lg mr-2 mt-2 sm:w-auto px-6 rounded-md">
+          <div className="ml-2 flex md:ml-40 mt-2 md:mr-[200px] flex-wrap font-inter space-x-2 z-10">
+            <button className="w-42 h-8 hover:bg-black hover:text-white text-black border-2 border-solid border-black font-bold text-sm md:text-lg mr-2 mt-2 sm:w-auto px-6 rounded-md">
               AI
             </button>
-            <button className="w-48 h-8 hover:bg-purple-700 hover:text-white  text-purple-700 border-2 border-solid border-purple-700 font-bold text-lg mr-2 mt-2 sm:w-auto px-6 rounded-md">
+            <button className="w-48 h-8 hover:bg-purple-700 hover:text-white  text-purple-700 border-2 border-solid border-purple-700 font-bold text-sm md:text-lg mr-2 mt-2 sm:w-auto px-6 rounded-md">
               Productivity
             </button>
-            <button className="w-48 h-8 hover:bg-green-700 hover:text-white  text-green-700 border-2 border-solid border-green-700 font-bold text-lg mr-2 mt-2  sm:w-auto px-6 rounded-md">
+            <button className="w-48 h-8 hover:bg-green-700 hover:text-white  text-green-700 border-2 border-solid border-green-700 font-bold text-sm md:text-lg mr-2 mt-2  sm:w-auto px-6 rounded-md">
               Developer Tools
             </button>
-            <button className="w-48 h-8 hover:bg-yellow-600 hover:text-white  text-yellow-600 border-2 border-solid border-yellow-600 font-bold text-lg mr-2 mt-2 sm:w-auto px-6 rounded-md">
+            <button className="w-48 h-8 hover:bg-yellow-600 hover:text-white  text-yellow-600 border-2 border-solid border-yellow-600 font-bold text-sm md:text-lg mr-2 mt-2 sm:w-auto px-6 rounded-md">
               Tech
             </button>
-            <button className="w-48 h-8 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 font-bold text-lg mr-2 mt-2  sm:w-auto px-6 rounded-md">
+            <button className="w-48 h-8 hover:bg-purple-600 hover:text-white  text-purple-600 border-2 border-solid border-purple-600 font-bold text-sm md:text-lg mr-2 mt-2  sm:w-auto px-6 rounded-md">
               Marketing
             </button>
           </div>
