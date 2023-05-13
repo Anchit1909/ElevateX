@@ -18,10 +18,10 @@ function Testimonial() {
     transition={{ duration: 1 }}>
           Growth stories from our community
         </motion.h1>
-        <div className="absolute right-64 -top-10 w-[500px] h-[500px] bg-[#B3AAFC]/20 rounded-full -z-10 blur-3xl" />
-        <div className="absolute right-16 -top-6 w-[500px] h-[500px] bg-[#E841E1]/20 rounded-full -z-10 blur-3xl" />
-        <div className="absolute -right-40  w-[400px] h-[400px] bg-[#F1BB31]/20 rounded-full -z-10 blur-3xl" />
-        {/* <div className="absolute -right-24 bottom-8 w-96 h-96 bg-[#DFF363]/20 rounded-full -z-10 blur-3xl" /> */}
+        <div className="absolute right-36 -top-28 w-[412px] h-[412px] bg-[#B3AAFC]/[16%] rounded-full -z-10  blur-3xl" />
+        <div className="absolute -right-8 -top-28 w-[412px] h-[412px] bg-[#E841E1]/[16%] rounded-full -z-10  blur-3xl" />
+        <div className="absolute -right-28 -top-28  w-[412px] h-[412px] bg-[#F1BB31]/[16%] rounded-full -z-10 blur-3xl" />
+        <div className="absolute -right-48 -top-32 w-[412px] h-[412px] bg-[#DFF363]/[16%] rounded-full -z-10 blur-3xl" />
         <p className="px-2 md:px-0 text-center text-[#6D798B] font-inter">
           Thousands of founders are using ElevateX to promote and sell their
           startups

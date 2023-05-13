@@ -13,9 +13,9 @@ function Rightbar() {
           </div>
           <div className="flex my-4 space-x-2 font-inter">
             <div>
-              <h1 className="font-medium">Leaders Arena</h1>
+              <h1 className="font-medium">Tech Genius</h1>
               <h1 className="text-sm w-52 font-medium text-[#4B587C]">
-                Turn your team into a productivity powerhouse
+              Revolutionizing the tech industry with innovative solutions
               </h1>
             </div>
             <Image
@@ -29,9 +29,9 @@ function Rightbar() {
           </div>
           <div className="flex my-4 space-x-2 font-inter">
             <div>
-              <h1 className="font-medium">Leaders Arena</h1>
+              <h1 className="font-medium">Foodie Buddy</h1>
               <h1 className="text-sm w-52 font-medium text-[#4B587C]">
-                Turn your team into a productivity powerhouse
+              Connecting food enthusiasts with local restaurants 
               </h1>
             </div>
             <Image
@@ -45,9 +45,9 @@ function Rightbar() {
           </div>
           <div className="flex my-4 space-x-2 font-inter">
             <div>
-              <h1 className="font-medium">Leaders Arena</h1>
+              <h1 className="font-medium">Health First</h1>
               <h1 className="text-sm w-52 font-medium text-[#4B587C]">
-                Turn your team into a productivity powerhouse
+              Empowering individuals to take control of their health
               </h1>
             </div>
             <Image
@@ -67,9 +67,9 @@ function Rightbar() {
           </div>
           <div className="flex my-4 space-x-2 font-inter">
             <div>
-              <h1 className="font-medium">Leaders Arena</h1>
+              <h1 className="font-medium">Swift Scribe</h1>
               <h1 className="text-sm w-52 font-medium text-[#4B587C]">
-                Turn your team into a productivity powerhouse
+              Voice-to-Text Transcription Software
               </h1>
             </div>
             <Image
@@ -83,9 +83,9 @@ function Rightbar() {
           </div>
           <div className="flex my-4 space-x-2 font-inter">
             <div>
-              <h1 className="font-medium">Leaders Arena</h1>
+              <h1 className="font-medium">Sun Sense</h1>
               <h1 className="text-sm w-52 font-medium text-[#4B587C]">
-                Turn your team into a productivity powerhouse
+              Smart UV Monitoring Patch
               </h1>
             </div>
             <Image
@@ -99,9 +99,9 @@ function Rightbar() {
           </div>
           <div className="flex my-4 space-x-2 font-inter">
             <div>
-              <h1 className="font-medium">Leaders Arena</h1>
+              <h1 className="font-medium"> Clean Cup</h1>
               <h1 className="text-sm w-52 font-medium text-[#4B587C]">
-                Turn your team into a productivity powerhouse
+              Smart Reusable Coffee Cup
               </h1>
             </div>
             <Image

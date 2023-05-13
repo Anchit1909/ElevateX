@@ -12,7 +12,7 @@ function Header() {
   };
 
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-white py-4 px-32 relative z-10">
+    <nav className="flex items-center justify-between flex-wrap bg-[#FEFDFB] py-4 px-32 relative z-10 shadow-sm">
       <div className="flex items-center flex-shrink-0 mr-6 text-3xl">
         <Link href="/">
           Elevate<span className="font-bold">X</span>
@@ -49,7 +49,7 @@ function Header() {
               Top Investors
             </p>
           </Link>
-          <Link href="/stories" className="hover:text-violet-500">
+          <Link href="/startupstories" className="hover:text-violet-500">
             <p className="block mt-4 lg:inline-block lg:mt-0">
               Startup Stories
             </p>

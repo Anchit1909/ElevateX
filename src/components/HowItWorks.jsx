@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useInView } from 'react-intersection-observer';
 function HowItWorks() {
   return (
-    <section className="py-28 bg-white ">
+    <section className="py-28 bg-white">
       <div className="max-w-screen-xl mx-auto px-4">
         <div className="mb-12">
           <button className="border px-4 rounded-2xl text-[#269140] bg-[#E9FBEF] font-inter font-bold">

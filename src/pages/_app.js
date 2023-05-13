@@ -8,14 +8,12 @@ const poppins = Poppins({
   variable: "--font-poppins",
   weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
-  display: "swap",
 });
 
 const inter = Inter({
   variable: "--font-inter",
   weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
-  display: "swap",
 });
 
 export default function App({

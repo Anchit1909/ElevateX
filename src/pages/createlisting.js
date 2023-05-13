@@ -25,34 +25,32 @@ function createlisting() {
   const [link, setLink] = useState("");
   const [category, setCategory] = useState("");
   const [imageurl, setImageurl] = useState("");
-  const [imageUpload, setImageUpload] = useState(null);
+  const [logoUpload, setLogoUpload] = useState(null);
+  const [image1Upload, setImage1Upload] = useState(null);
+  const [image2Upload, setImage2Upload] = useState(null);
   const [description, setDescription] = useState("");
+  const [aboutProduct, setAboutProduct] = useState("");
   const [imageDownloadURL, setImageDownloadURL] = useState("");
+  const [yearFounded, setYearFounded] = useState(0);
+  const [teamSize, setTeamSize] = useState(0);
+  const [country, setCountry] = useState("");
+  const [customers, setCustomers] = useState(0);
+  const [revenueTTM, setRevenueTTM] = useState(0);
+  const [profitTTM, setProfitTTM] = useState(0);
+  const [monthRevenue, setMonthRevenue] = useState(0);
+  const [monthProfit, setMonthProfit] = useState(0);
+  const [annualRevenue, setAnnualRevenue] = useState(0);
+  const [annualGrowth, setAnnualGrowth] = useState(0);
+  const [businessModel, setBusinessModel] = useState("");
+
   // console.log(session.user.email);
   const db = getFirestore(app);
 
-  // const uploadImage = () => {
-  //   if (imageUpload == null) return;
-  //   const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
-  //   uploadBytes(imageRef, imageUpload)
-  //     .then((snapshot) => {
-  //       return getDownloadURL(snapshot.ref);
-  //     })
-  //     .then((downloadURL) => {
-  //       setImageDownloadURL(downloadURL);
-  //     })
-  //     .then(() => {
-  //       toast.success("File Uploaded Successfully", {
-  //         position: "bottom-right",
-  //       });
-  //     });
-  // };
-
-  const uploadImage = async () => {
-    if (imageUpload == null) return;
-    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+  const uploadImage = async (imageName) => {
+    if (imageName == null) return;
+    const imageRef = ref(storage, `images/${imageName.name + v4()}`);
     try {
-      const snapshot = await uploadBytes(imageRef, imageUpload);
+      const snapshot = await uploadBytes(imageRef, imageName);
       const downloadURL = await getDownloadURL(snapshot.ref);
       // setImageDownloadURL(downloadURL);
       // toast.success("File Uploaded Successfully", {
@@ -66,7 +64,9 @@ function createlisting() {
 
   const createListing = async (e) => {
     e.preventDefault();
-    let downloadURL = await uploadImage();
+    let logoDownloadURL = await uploadImage(logoUpload);
+    let image1DownloadURL = await uploadImage(image1Upload);
+    let image2DownloadURL = await uploadImage(image2Upload);
     setTimeout(function () {}, 1000);
     const dbRef = collection(db, "startups");
     await addDoc(dbRef, {
@@ -74,10 +74,26 @@ function createlisting() {
       tagline: tagline,
       productLink: link,
       category: category,
-      image: downloadURL,
+      logo: logoDownloadURL,
       description: description,
+      image1: image1DownloadURL,
+      image2: image2DownloadURL,
+      aboutProduct: aboutProduct,
       createdAt: serverTimestamp(),
       userEmail: session.user.email,
+      upvote: [session.user.email],
+      upvotes: 1,
+      yearFounded: yearFounded,
+      teamSize: teamSize,
+      country: country,
+      customers: customers,
+      revenueTTM: revenueTTM,
+      profitTTM: profitTTM,
+      monthRevenue: monthRevenue,
+      monthProfit: monthProfit,
+      annualRevenue: annualRevenue,
+      annualGrowth: annualGrowth,
+      businessModel: businessModel,
     })
       .then((docRef) => {
         // console.log("Document has been added successfully");
@@ -93,7 +109,7 @@ function createlisting() {
   return (
     <>
       <Header />
-      <section className="bg-white">
+      <section className="bg-[#FEFDFB]">
         <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
           <h2 className="mb-4 text-xl font-bold text-gray-900">
             Add a new Startup Listing
@@ -123,7 +139,7 @@ function createlisting() {
                   name="tagline"
                   id="tagline"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                  placeholder="tagline"
+                  placeholder="Tagline"
                   required={true}
                   onChange={(e) => setTagline(e.target.value)}
                 />
@@ -137,7 +153,7 @@ function createlisting() {
                   name="link"
                   id="link"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                  placeholder="link"
+                  placeholder="Website Link"
                   required={true}
                   onChange={(e) => setLink(e.target.value)}
                 />
@@ -174,17 +190,17 @@ function createlisting() {
               </div> */}
               <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900">
-                  Upload Image
+                  Upload Logo
                 </label>
                 <input
                   type="file"
-                  name="imagefile"
+                  name="logoFile"
                   accept="image/png, image/jpeg, image/jpg"
                   maxLength="3000000"
-                  id="imagefile"
+                  id="logoFile"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   required={true}
-                  onChange={(e) => setImageUpload(e.target.files[0])}
+                  onChange={(e) => setLogoUpload(e.target.files[0])}
                 />
                 {/* <button onClick={uploadImage}>Upload</button> */}
               </div>
@@ -200,8 +216,212 @@ function createlisting() {
                   onChange={(e) => setDescription(e.target.value)}
                 ></textarea>
               </div>
+              <div>
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Upload First Product Image
+                </label>
+                <input
+                  type="file"
+                  name="image1file"
+                  accept="image/png, image/jpeg, image/jpg"
+                  maxLength="3000000"
+                  id="image1file"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  required={true}
+                  onChange={(e) => setImage1Upload(e.target.files[0])}
+                />
+                {/* <button onClick={uploadImage}>Upload</button> */}
+              </div>
+              <div>
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Upload Second Product Image
+                </label>
+                <input
+                  type="file"
+                  name="image2file"
+                  accept="image/png, image/jpeg, image/jpg"
+                  maxLength="3000000"
+                  id="image2file"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  required={true}
+                  onChange={(e) => setImage2Upload(e.target.files[0])}
+                />
+                {/* <button onClick={uploadImage}>Upload</button> */}
+              </div>
+              <div className="sm:col-span-2">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Detailed Info about the product
+                </label>
+                <textarea
+                  id="aboutproduct"
+                  rows={10}
+                  className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+                  placeholder="Write a short description of your product"
+                  onChange={(e) => setAboutProduct(e.target.value)}
+                ></textarea>
+              </div>
             </div>
-
+            <h2 className="font-poppins font-semibold mt-2 text-lg">
+              Company Details for interested Investors
+            </h2>
+            <p className="mb-4">
+              <span className="font-poppins font-bold font-sm">NOTE:</span> This
+              will only be visible to investors and not your users
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Year Founded
+                </label>
+                <input
+                  type="number"
+                  name="yearfounded"
+                  id="yearfounded"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Year Founded"
+                  required={true}
+                  onChange={(e) => setYearFounded(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Startup Team Size
+                </label>
+                <input
+                  type="number"
+                  name="teamsize"
+                  id="teamsize"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Team size"
+                  required={true}
+                  onChange={(e) => setTeamSize(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Country of Origin
+                </label>
+                <input
+                  type="text"
+                  name="country"
+                  id="country"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Country of origin"
+                  required={true}
+                  onChange={(e) => setCountry(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Customers
+                </label>
+                <input
+                  type="number"
+                  name="customers"
+                  id="customers"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Approx. no. of customers"
+                  required={true}
+                  onChange={(e) => setCustomers(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Revenue in TTM
+                </label>
+                <input
+                  type="number"
+                  name="revenuettm"
+                  id="revenuettm"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="TTM Revenue"
+                  required={true}
+                  onChange={(e) => setRevenueTTM(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Profit in TTM
+                </label>
+                <input
+                  type="number"
+                  name="profitttm"
+                  id="profitttm"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="TTM Profit"
+                  required={true}
+                  onChange={(e) => setProfitTTM(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Revenue Last Month
+                </label>
+                <input
+                  type="number"
+                  name="reventuemonth"
+                  id="profitmonth"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Last month revenue"
+                  required={true}
+                  onChange={(e) => setMonthRevenue(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Profit Last Month
+                </label>
+                <input
+                  type="number"
+                  name="profitmonth"
+                  id="profitmonth"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Last month Profit"
+                  required={true}
+                  onChange={(e) => setMonthProfit(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Annual Recurring Revenue
+                </label>
+                <input
+                  type="number"
+                  name="annualrecur"
+                  id="annualrecur"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Recurring revenue"
+                  required={true}
+                  onChange={(e) => setAnnualRevenue(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Annual Growth Rate
+                </label>
+                <input
+                  type="number"
+                  name="annualgrowth"
+                  id="annualgrowth"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="Growth Rate"
+                  required={true}
+                  onChange={(e) => setAnnualGrowth(e.target.value)}
+                />
+              </div>
+              <div className="sm:col-span-2">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Business Model and Pricing
+                </label>
+                <textarea
+                  id="businessmodel"
+                  rows={10}
+                  className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+                  placeholder="Write a short description of your business model and your pricing plans"
+                  onChange={(e) => setBusinessModel(e.target.value)}
+                ></textarea>
+              </div>
+            </div>
             <button
               type="submit"
               className="my-auto bg-[#7A5AF8] text-white font-semibold text-lg  py-1 px-4 rounded-xl mt-4"

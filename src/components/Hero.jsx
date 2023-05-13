@@ -11,11 +11,11 @@ function Hero() {
           <motion.h1 className="px-3 lg-px-0 font-semibold text-6xl text-gray-900 font-poppins max-w-lg md:max-w-xl relative z-10 " initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} >
             Post Your Startup Idea and Get Discovered
           </motion.h1>
-          <div className="absolute -left-40 w-96 h-96 bg-[#B3AAFC]/30 rounded-full blur-3xl" />
-          <div className="absolute -left-20 -top-28 w-96 h-96 bg-[#E841E1]/30 rounded-full blur-3xl" />
-          <div className="absolute left-28 -top-28 w-96 h-96 bg-[#F1BB31]/30 rounded-full blur-3xl" />
-          <div className="absolute left-52 -top-28 w-96 h-96 bg-[#DFF363]/30 rounded-full blur-3xl" />
-          <motion.p className="px-3 lg-px-0 text-gray-600 mt-4 text-lg max-w-md font-inter z-10" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1 }}>
+          <div className="absolute -left-40 top-4 w-96 h-96 bg-[#B3AAFC]/[25%] rounded-full blur-3xl" />
+          <div className="absolute -left-12 -top-36 w-96 h-96 bg-[#E841E1]/[25%] rounded-full blur-3xl" />
+          <div className="absolute left-32 -top-24 w-96 h-96 bg-[#DFF363]/[25%] rounded-full blur-3xl" />
+          <div className="absolute left-28 -top-40 w-96 h-96 bg-[#F1BB31]/[25%] rounded-full blur-3xl" />
+          <motion.p className="px-3 lg-px-0 text-gray-600 mt-4 text-lg max-w-md font-inter z-10"initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1 }}>
             Get the platform to show your startup or invest your money in some
             useful startups.
           </motion.p>
@@ -31,9 +31,16 @@ function Hero() {
             </button>
           </motion.div>
         </div>
-        <motion.div className="flex items-center justify-center w-1/2" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 1 }} transition={{ duration: 1 }}>
+        <motion.div className="relative flex items-center justify-center w-1/2" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 1 }} transition={{ duration: 1 }}>
           {/* <img src="/heroimage5.png" className="h-[440px] " alt="" /> */}
-          <Image src="/hero_image.png" height={500} width={500} alt="" />
+          <Image
+            src="/hero_image2.png"
+            height={600}
+            width={600}
+            alt=""
+            className="z-10"
+          />
+          <div className="absolute -right-40 -top-72 w-[500px] h-[500px] bg-[#2BE5EE]/[15%] rounded-full blur-3xl" />
         </motion.div>
       </div>
     </section>
