@@ -15,7 +15,7 @@ function Rightbar() {
             <div>
               <h1 className="font-medium">Tech Genius</h1>
               <h1 className="text-sm w-52 font-medium text-[#4B587C]">
-              Revolutionizing the tech industry with innovative solutions
+                Revolutionizing the tech industry with innovative solutions
               </h1>
             </div>
             <Image
@@ -23,7 +23,7 @@ function Rightbar() {
               height={48}
               style={{ objectFit: "cover" }}
               className="rounded-sm"
-              src="/dp2.jpg"
+              src="/rightbar/1.jpg"
               alt=""
             />
           </div>
@@ -31,7 +31,7 @@ function Rightbar() {
             <div>
               <h1 className="font-medium">Foodie Buddy</h1>
               <h1 className="text-sm w-52 font-medium text-[#4B587C]">
-              Connecting food enthusiasts with local restaurants 
+                Connecting food enthusiasts with local restaurants
               </h1>
             </div>
             <Image
@@ -39,7 +39,7 @@ function Rightbar() {
               height={48}
               style={{ objectFit: "cover" }}
               className="rounded-sm"
-              src="/dp2.jpg"
+              src="/rightbar/2.png"
               alt=""
             />
           </div>
@@ -47,7 +47,7 @@ function Rightbar() {
             <div>
               <h1 className="font-medium">Health First</h1>
               <h1 className="text-sm w-52 font-medium text-[#4B587C]">
-              Empowering individuals to take control of their health
+                Empowering individuals to take control of their health
               </h1>
             </div>
             <Image
@@ -55,7 +55,7 @@ function Rightbar() {
               height={48}
               style={{ objectFit: "cover" }}
               className="rounded-sm"
-              src="/dp2.jpg"
+              src="/rightbar/3.jpg"
               alt=""
             />
           </div>
@@ -69,7 +69,7 @@ function Rightbar() {
             <div>
               <h1 className="font-medium">Swift Scribe</h1>
               <h1 className="text-sm w-52 font-medium text-[#4B587C]">
-              Voice-to-Text Transcription Software
+                Voice-to-Text Transcription Software
               </h1>
             </div>
             <Image
@@ -77,7 +77,7 @@ function Rightbar() {
               height={48}
               style={{ objectFit: "cover" }}
               className="rounded-sm"
-              src="/dp2.jpg"
+              src="/rightbar/4.png"
               alt=""
             />
           </div>
@@ -85,7 +85,7 @@ function Rightbar() {
             <div>
               <h1 className="font-medium">Sun Sense</h1>
               <h1 className="text-sm w-52 font-medium text-[#4B587C]">
-              Smart UV Monitoring Patch
+                Smart UV Monitoring Patch
               </h1>
             </div>
             <Image
@@ -93,7 +93,7 @@ function Rightbar() {
               height={48}
               style={{ objectFit: "cover" }}
               className="rounded-sm"
-              src="/dp2.jpg"
+              src="/rightbar/5.png"
               alt=""
             />
           </div>
@@ -101,7 +101,7 @@ function Rightbar() {
             <div>
               <h1 className="font-medium"> Clean Cup</h1>
               <h1 className="text-sm w-52 font-medium text-[#4B587C]">
-              Smart Reusable Coffee Cup
+                Smart Reusable Coffee Cup
               </h1>
             </div>
             <Image
@@ -109,7 +109,7 @@ function Rightbar() {
               height={48}
               style={{ objectFit: "cover" }}
               className="rounded-sm"
-              src="/dp2.jpg"
+              src="/rightbar/6.png"
               alt=""
             />
           </div>

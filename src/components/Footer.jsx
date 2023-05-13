@@ -8,7 +8,7 @@ function Footer() {
       <div className="max-w-screen-xl mx-auto flex flex-col items-center justify-center md:justify-between h-full px-12 md:flex-row">
         <div className="flex items-center text-black font-regular text-2xl md:text-2xl">
           <Link href="/">
-            <p>
+            <p className="font-poppins text-2xl">
               Elevate<span className="font-bold">X</span>
             </p>
           </Link>

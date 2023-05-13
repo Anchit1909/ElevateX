@@ -1,8 +1,13 @@
 import Image from "next/image";
 import React from "react";
-import { motion, useViewportScroll, useTransform,AnimatePresence  } from 'framer-motion';
+import {
+  motion,
+  useViewportScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
 import { useEffect } from "react";
-import { useInView } from 'react-intersection-observer';
+import { useInView } from "react-intersection-observer";
 function HowItWorks() {
   return (
     <section className="py-28 bg-white">
@@ -28,7 +33,7 @@ function HowItWorks() {
               </p>
             </div>
             <div className="w-1/2 flex items-center justify-center">
-              <Image src="/hiwform.png" alt="" width={420} height={420} />
+              <Image src="/nhiw2.png" alt="" width={450} height={450} />
             </div>
           </div>
           <div className="flex flex-col lg:flex-row items-center justify-center">
@@ -47,7 +52,7 @@ function HowItWorks() {
               </p>
             </div>
             <div className="w-1/2 flex items-center justify-center">
-              <Image src="/hiw2.png" alt="" width={420} height={420} />
+              <Image src="/nhiw1.png" alt="" width={450} height={450} />
             </div>
           </div>
           <div className="flex flex-col lg:flex-row items-center justify-center">
@@ -65,7 +70,7 @@ function HowItWorks() {
               </p>
             </div>
             <div className="w-1/2 flex items-center justify-center">
-              <Image src="/hiw3.png" alt="" width={420} height={420} />
+              <Image src="/nhiw3.png" alt="" width={450} height={450} />
             </div>
           </div>
         </div>

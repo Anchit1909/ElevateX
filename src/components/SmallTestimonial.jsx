@@ -17,8 +17,8 @@ function SmallTestimonial() {
     <motion.section
       className="bg-[#FAFBFD] mt-12 py-20 section"
       ref={ref}
-      initial={{ opacity: 0, x: -100 }}
-      animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -100 }}
+      initial={{ opacity: 0, x: -200 }}
+      animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -200 }}
       transition={{ duration: 1 }}
     >
       <div className="px-6 xl:px-0 text-center font-poppins max-w-screen-xl mx-auto flex flex-col items-center justify-center">

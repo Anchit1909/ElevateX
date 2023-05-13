@@ -15,7 +15,9 @@ function Header() {
     <nav className="flex items-center justify-between flex-wrap bg-[#FEFDFB] py-4 px-32 relative z-10 shadow-sm">
       <div className="flex items-center flex-shrink-0 mr-6 text-3xl">
         <Link href="/">
-          Elevate<span className="font-bold">X</span>
+          <p className="font-poppins">
+            Elevate<span className="font-bold">X</span>
+          </p>
         </Link>
       </div>
       <div className="block lg:hidden">
