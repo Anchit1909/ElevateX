@@ -16,7 +16,7 @@ function startupstories() {
             alt=""
           />
           <div className="flex items-center justify-center flex-col mx-10">
-            <h1 className="text-3xl text-center font-bold text-gray-900 font-poppins">
+            <h1 className="text-4xl text-center font-bold text-gray-900 font-poppins">
               STARTUP STORIES
             </h1>
             <p className="my-6 md:mb-0 md:mt-6 text-lg font-poppins text-center">
