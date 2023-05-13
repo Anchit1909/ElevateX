@@ -1,8 +1,18 @@
 import React from "react";
-
+import { motion, useViewportScroll, useTransform,AnimatePresence  } from 'framer-motion';
+import { useEffect } from "react";
+import { useInView } from 'react-intersection-observer';
 function SmallTestimonial() {
+  const [ref, inView] = useInView({
+    triggerOnce: false, // Animation triggers only once
+    threshold: 0.1, // Trigger animation when the component is 10% visible
+  });
+
   return (
-    <section className="bg-[#FAFBFD] mt-12 py-20">
+    <motion.section className="bg-[#FAFBFD] mt-12 py-20 section"  ref={ref}
+    initial={{ opacity: 0, x: -100 }}
+    animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -100 }}
+    transition={{ duration: 1 }}>
       <div className="px-6 xl:px-0 text-center font-poppins max-w-screen-xl mx-auto flex flex-col items-center justify-center">
         <div>
           <h1 className="sm:text-lg md:text-2xl lg:text-3xl leading-10 tracking-tight max-w-6xl">
@@ -16,7 +26,7 @@ function SmallTestimonial() {
           </h2>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

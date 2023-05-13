@@ -1,13 +1,23 @@
 import Image from "next/image";
 import React from "react";
+import { motion, useViewportScroll, useTransform,AnimatePresence  } from 'framer-motion';
+import { useEffect } from "react";
+import { useInView } from 'react-intersection-observer';
 
 function Testimonial() {
+  const [ref, inView] = useInView({
+    triggerOnce: false, // Animation triggers only once
+    threshold: 0.1, // Trigger animation when the component is 10% visible
+  });
   return (
     <section className="py-16">
       <div className="relative max-w-screen-xl mx-auto">
-        <h1 className="px-2 md:px-0 text-center font-poppins font-semibold text-gray-900 text-3xl">
+        <motion.h1 className="px-2 md:px-0 text-center font-poppins font-semibold text-gray-900 text-3xl"  ref={ref}
+    initial={{ opacity: 0, y: -100 }}
+    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : -100 }}
+    transition={{ duration: 1 }}>
           Growth stories from our community
-        </h1>
+        </motion.h1>
         <div className="absolute right-36 -top-28 w-[412px] h-[412px] bg-[#B3AAFC]/[16%] rounded-full -z-10  blur-3xl" />
         <div className="absolute -right-8 -top-28 w-[412px] h-[412px] bg-[#E841E1]/[16%] rounded-full -z-10  blur-3xl" />
         <div className="absolute -right-28 -top-28  w-[412px] h-[412px] bg-[#F1BB31]/[16%] rounded-full -z-10 blur-3xl" />
@@ -16,7 +26,9 @@ function Testimonial() {
           Thousands of founders are using ElevateX to promote and sell their
           startups
         </p>
-        <div className="flex space-x-2 justify-center items-center mt-4">
+        <motion.div className="flex space-x-2 justify-center items-center mt-4" initial={{ opacity: 0, x: -400 }}
+    animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -400 }}
+    transition={{ duration: 3 }}>
           <Image src="/founder_images.png" alt="" height={42} width={348} />
           {/* <img
             className="w-10 h-10 rounded-full object-cover"
@@ -48,8 +60,11 @@ function Testimonial() {
             src="/dp7.jpg"
             alt=""
           /> */}
-        </div>
-        <div className="flex flex-col lg:flex-row my-12 mx-24 space-x-14 border rounded-xl bg-white">
+        </motion.div>
+        <motion.div className="flex flex-col lg:flex-row my-12 mx-24 space-x-14 border rounded-xl bg-white"  ref={ref}
+    initial={{ opacity: 0, y: 200 }}
+    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 200 }}
+    transition={{ duration: 2 }}>
           <Image
             className="rounded-xl lg:rounded-tl-xl lg:rounded-bl-xl lg:rounded-br-none lg:rounded-tr-none"
             src="/startup4.jpg"
@@ -83,7 +98,7 @@ function Testimonial() {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
