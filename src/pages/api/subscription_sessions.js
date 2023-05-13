@@ -1,12 +1,9 @@
 import Stripe from "stripe";
 
-const stripe = new Stripe(
-  "sk_test_51MllALSFhWqgkmNLciHzyvi8Wnf3hiw6kehlZqtez3fNQDvYu5PpTGaLEM3nsaf0WnFk5v8FLJDMBnMf0sDsPoJ8005m6XfRkf",
-  {
-    // https://github.com/stripe/stripe-node#configuration
-    apiVersion: "2022-11-15",
-  }
-);
+const stripe = new Stripe(`${process.env.STRIPE_SECRET_KEY}`, {
+  // https://github.com/stripe/stripe-node#configuration
+  apiVersion: "2022-11-15",
+});
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const item = req.body.item;
