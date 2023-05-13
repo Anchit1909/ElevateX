@@ -1,3 +1,5 @@
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import Head from "next/head";
 import React from "react";
 
@@ -5,6 +7,7 @@ function startupstories() {
   return (
     <div>
       <Head></Head>
+      <Header />
       <section>
         <div className="flex flex-col md:flex-row bg-blue-100">
           <img
@@ -137,6 +140,7 @@ function startupstories() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
