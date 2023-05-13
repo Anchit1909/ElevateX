@@ -49,7 +49,7 @@ function Header() {
               Top Investors
             </p>
           </Link>
-          <Link href="/stories" className="hover:text-violet-500">
+          <Link href="/startupstories" className="hover:text-violet-500">
             <p className="block mt-4 lg:inline-block lg:mt-0">
               Startup Stories
             </p>

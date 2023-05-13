@@ -77,7 +77,7 @@ function Features() {
         <div className="w-1/2 relative mr-36 md:mr-12 lg:mr-0">
           <div className="absolute right-10 -top-6 w-96 h-96 bg-[#B3AAFC]/20 rounded-full -z-10 blur-3xl" />
           <div className="absolute -right-10 -top-2 w-96 h-96 bg-[#E841E1]/10 rounded-full -z-10 blur-3xl" />
-          <div className="absolute -right-28 top-8 w-96 h-96 bg-[#F1BB31]/10 rounded-full -z-10 blur-3xl" />
+          {/* <div className="absolute -right-28 top-8 w-96 h-96 bg-[#F1BB31]/10 rounded-full -z-10 blur-3xl" /> */}
           <div className="absolute -right-36 top-20 w-96 h-96 bg-[#DFF363]/20 rounded-full -z-10 blur-3xl" />
           <Image src="/startup1.jpg" width={320} height={320} alt="" />
           <Image
