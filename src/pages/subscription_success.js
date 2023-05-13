@@ -11,14 +11,15 @@ import {
   getDocs,
 } from "firebase/firestore";
 import { app } from "../../firebase";
-import { getSession } from "next-auth/react";
+import { getSession, useSession } from "next-auth/react";
 import { BsBagCheckFill } from "react-icons/bs";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import CheckAnimation from "../animations/89540-green-check.json";
 import Link from "next/link";
 
-function subscription_success({ user }) {
+function subscription_success() {
   const router = useRouter();
+  const { data: session } = useSession();
   const { session_id } = router.query;
   let requiredDocId;
   const db = getFirestore(app);
@@ -31,7 +32,10 @@ function subscription_success({ user }) {
   }
 
   async function getUserStatus() {
-    const q = query(collection(db, "users"), where("email", "==", user.email));
+    const q = query(
+      collection(db, "users"),
+      where("email", "==", session.user.email)
+    );
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
@@ -49,9 +53,9 @@ function subscription_success({ user }) {
   // .catch((error) => {
   //   console.log(error);
   // });
-  useEffect(() => {
-    getUserStatus();
-  }, []);
+  // useEffect(() => {
+  //   getUserStatus();
+  // }, []);
 
   // console.log(user);
   return (
@@ -90,6 +94,7 @@ function subscription_success({ user }) {
               <button
                 type="button"
                 className="py-2 px-3 text-sm font-medium text-center text-white rounded-md bg-[#7A5AF8] hover:bg-[#7A5AF8]/90 focus:ring-4 focus:outline-none focus:ring-[#7A5AF8]/50 mt-4 font-poppins"
+                onClick={getUserStatus}
               >
                 Return to Products Page
               </button>
@@ -103,15 +108,15 @@ function subscription_success({ user }) {
 
 export default subscription_success;
 //server side rendering
-export async function getServerSideProps(ctx) {
-  const session = await getSession(ctx);
-  if (!session) {
-    return {
-      props: {},
-    };
-  }
-  const { user } = session;
-  return {
-    props: { user },
-  };
-}
+// export async function getServerSideProps(ctx) {
+//   const session = await getSession(ctx);
+//   if (!session) {
+//     return {
+//       props: {},
+//     };
+//   }
+//   const { user } = session;
+//   return {
+//     props: { user },
+//   };
+// }
