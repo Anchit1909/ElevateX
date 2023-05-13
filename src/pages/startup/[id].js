@@ -171,7 +171,7 @@ function Startup({ datas }) {
                 {data.category}
               </button>
             </div>
-            <div className="flex justify-center space-x-2 md:space-x-10 mt-10">
+            <div className="flex flex-col px-7 md:px-0 md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-10 mt-10">
               <Image
                 className=""
                 src={data.image1}
@@ -263,31 +263,33 @@ function Startup({ datas }) {
           <div className="absolute -right-28 top-8 w-96 h-96 bg-[#F1BB31]/10 rounded-full blur-3xl" />
           <div className="absolute -right-36 top-20 w-96 h-96 bg-[#DFF363]/10 rounded-full blur-3xl" />
           <h1 className="text-xl px-2 md:px-64 text-[#0A171C] font-regular font-poppins z-10">
-            “Article Summary powered by ChatGPT is a free Chrome Extension that
-            lets you quickly access the summary of any web articles you are
-            reading. Use this extension to save time and learn more quickly.”
+            "Working with ElevateX has been a game-changer for our startup.
+            Their platform has provided us with unparalleled access to a network
+            of investors and resources that have accelerated our growth. The
+            team at ElevateX has been incredibly supportive throughout our
+            journey, offering valuable guidance and connections."
           </h1>
           <div className="flex flex-col space-y-1">
             <Image
               className="w-20 h-20 mt-8 mx-auto rounded-full"
-              src="/dp8.jpg"
+              src="/dp5.jpg"
               alt=""
               height={80}
               width={80}
             />
             <div className="flex flex-col items-center justify-center">
               <h2 className="text-xl font-poppins leading-tight">
-                Disha Patani
+              Jane Smith
               </h2>
               <p className="text-sm text-gray-900 font-poppins">
-                CEO of Boys Heart
+              CEO of a TechCo Solutions
               </p>
             </div>
           </div>
         </div>
         {subscriptionStatus && (
-          <div className="max-w-screen-xl mx-auto">
-            <div className="mt-8">
+          <div className="max-w-screen-xl xl:mx-auto mx-2">
+            <div className="mt-8 mx-2">
               <h1 className="text-black text-xl font-poppins font-medium">
                 Business Model and Pricing
               </h1>

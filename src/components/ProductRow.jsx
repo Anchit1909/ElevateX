@@ -45,13 +45,13 @@ function ProductRow({ key, data, id }) {
         alt=""
         className="w-[70px] h-[70px] object-contain rounded-md"
       />
-      <div className="space-y-2">
+      <div className="space-y-2 pr-4 2xl:pr-0">
         <Link href={`/startup/${id}`}>
-          <div className="flex font-medium text-xl leading-3 pl-10 font-inter">
+          <div className="flex font-medium text-lg md:text-xl leading-3 pl-10 font-inter">
             {data.heading}
           </div>
         </Link>
-        <div className=" flex not-italic font-medium text-base leading-6 text-[#4B587C] pl-10">
+        <div className=" flex not-italic font-medium text-sm md:text-base leading-6 text-[#4B587C] pl-10">
           {data.tagline}
           {/* {JSON.stringify(data.Name).replace(/"/g, "")} */}
         </div>
