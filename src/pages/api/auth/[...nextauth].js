@@ -12,13 +12,13 @@ export const authOptions = {
     }),
     // ...add more providers here
   ],
-  adapter: FirestoreAdapter({
-    adminDb,
-  }),
   secret: process.env.NEXTAUTH_SECRET,
   session: {
     strategy: "jwt",
   },
+  adapter: FirestoreAdapter({
+    adminDb,
+  }),
   // callbacks: {
   //   session: async ({ session, token, user }) => {
   //     if (session?.user) {
