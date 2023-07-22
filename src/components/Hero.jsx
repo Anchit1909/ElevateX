@@ -36,7 +36,7 @@ function Hero() {
             transition={{ duration: 1 }}
           >
             <button
-              onClick={() => {
+              onClick={(e) => {
                 e.preventDefault();
                 signIn("google", { callbackUrl: "/products" });
               }}
