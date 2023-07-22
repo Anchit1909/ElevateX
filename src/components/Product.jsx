@@ -12,11 +12,11 @@ import {
 } from "firebase/firestore";
 import { app } from "../../firebase";
 import { useCollection } from "react-firebase-hooks/firestore";
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 import ProductRow from "./ProductRow";
 import Footer from "./Footer";
 function Product() {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
   const db = getFirestore(app);
 
   const [value, loading, error] = useCollection(
