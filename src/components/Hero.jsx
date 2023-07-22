@@ -36,7 +36,10 @@ function Hero() {
             transition={{ duration: 1 }}
           >
             <button
-              onClick={() => signIn("google", { callbackUrl: "/products" })}
+              onClick={() => {
+                e.preventDefault();
+                signIn("google", { callbackUrl: "/products" });
+              }}
               className="my-auto bg-[#7A5AF8] text-white font-bold text-lg py-1 px-4 rounded-3xl"
             >
               Get Started

@@ -74,7 +74,10 @@ function Header() {
           ) : (
             <button
               className="my-auto bg-violet-500 text-white font-bold text-lg py-1 px-10 rounded-3xl"
-              onClick={() => signIn("google", { callbackUrl: "/products" })}
+              onClick={() => {
+                e.preventDefault();
+                signIn("google", { callbackUrl: "/products" });
+              }}
             >
               Login
             </button>
