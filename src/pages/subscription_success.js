@@ -17,9 +17,9 @@ import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import CheckAnimation from "../animations/89540-green-check.json";
 import Link from "next/link";
 
-function subscription_success() {
+function subscription_success({ user }) {
   const router = useRouter();
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
   const { session_id } = router.query;
   let requiredDocId;
   const db = getFirestore(app);
@@ -32,10 +32,7 @@ function subscription_success() {
   }
 
   async function getUserStatus() {
-    const q = query(
-      collection(db, "users"),
-      where("email", "==", session.user.email)
-    );
+    const q = query(collection(db, "users"), where("email", "==", user.email));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
@@ -53,12 +50,12 @@ function subscription_success() {
   // .catch((error) => {
   //   console.log(error);
   // });
-  // useEffect(() => {
-  //   getUserStatus();
-  // }, []);
+  useEffect(() => {
+    getUserStatus();
+  }, []);
 
   // console.log(user);
-  
+
   return (
     <div>
       <Head>
@@ -109,15 +106,15 @@ function subscription_success() {
 
 export default subscription_success;
 //server side rendering
-// export async function getServerSideProps(ctx) {
-//   const session = await getSession(ctx);
-//   if (!session) {
-//     return {
-//       props: {},
-//     };
-//   }
-//   const { user } = session;
-//   return {
-//     props: { user },
-//   };
-// }
+export async function getServerSideProps(ctx) {
+  const session = await getSession(ctx);
+  if (!session) {
+    return {
+      props: {},
+    };
+  }
+  const { user } = session;
+  return {
+    props: { user },
+  };
+}

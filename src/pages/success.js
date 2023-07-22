@@ -9,8 +9,8 @@ import Link from "next/link";
 
 function success() {
   const router = useRouter();
-  const { data: session, status } = useSession();
-  const { session_id } = router.query;
+  // const { data: session, status } = useSession();
+  // const { session_id } = router.query;
   // async function rr() {
   //   const response = await getSession();
   //   console.log(response);
