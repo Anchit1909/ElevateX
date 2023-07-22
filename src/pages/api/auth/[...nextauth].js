@@ -40,7 +40,7 @@ export const authOptions = {
   //     return token;
   //   },
   // },
-  // secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 export default NextAuth(authOptions);
