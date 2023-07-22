@@ -12,6 +12,10 @@ export const authOptions = {
     }),
     // ...add more providers here
   ],
+  session: {
+    strategy: "jwt",
+  },
+  secret: process.env.NEXTAUTH_SECRET,
   adapter: FirestoreAdapter({
     adminDb,
   }),
@@ -40,7 +44,6 @@ export const authOptions = {
   //     return token;
   //   },
   // },
-  secret: process.env.NEXTAUTH_SECRET,
 };
 
 export default NextAuth(authOptions);
