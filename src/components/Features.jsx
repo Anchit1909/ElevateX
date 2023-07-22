@@ -44,7 +44,7 @@ function Features() {
           </motion.div>
           <motion.div
             className="flex flex-col space-y-4"
-            ef={ref}
+            ref={ref}
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 100 }}
             transition={{ duration: 1 }}
@@ -99,7 +99,7 @@ function Features() {
         {/* Right */}
         <motion.div
           className="w-1/2 relative mr-36 md:mr-12 lg:mr-0"
-          ef={ref}
+          ref={ref}
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 100 }}
           transition={{ duration: 1 }}

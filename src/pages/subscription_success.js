@@ -58,6 +58,7 @@ function subscription_success() {
   // }, []);
 
   // console.log(user);
+  
   return (
     <div>
       <Head>
